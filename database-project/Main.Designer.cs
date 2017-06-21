@@ -31,11 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.mainLayout = new System.Windows.Forms.TableLayoutPanel();
             this.selectionPane = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rightPane = new System.Windows.Forms.TableLayoutPanel();
             this.searchPane = new System.Windows.Forms.FlowLayoutPanel();
             this.visualizationPane = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.mainLayout.SuspendLayout();
+            this.selectionPane.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.rightPane.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLayout
@@ -54,11 +63,23 @@
             // 
             // selectionPane
             // 
+            this.selectionPane.Controls.Add(this.pictureBox1);
+            this.selectionPane.Controls.Add(this.pictureBox2);
+            this.selectionPane.Controls.Add(this.pictureBox3);
+            this.selectionPane.Controls.Add(this.pictureBox4);
             this.selectionPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selectionPane.Location = new System.Drawing.Point(3, 3);
             this.selectionPane.Name = "selectionPane";
             this.selectionPane.Size = new System.Drawing.Size(82, 554);
             this.selectionPane.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(79, 74);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // rightPane
             // 
@@ -90,6 +111,30 @@
             this.visualizationPane.Size = new System.Drawing.Size(488, 515);
             this.visualizationPane.TabIndex = 1;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(3, 83);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(79, 74);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(3, 163);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(79, 74);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(3, 243);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(79, 74);
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,7 +149,12 @@
             this.Name = "Main";
             this.Text = "Ricettario";
             this.mainLayout.ResumeLayout(false);
+            this.selectionPane.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.rightPane.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -116,6 +166,10 @@
         private System.Windows.Forms.TableLayoutPanel rightPane;
         private System.Windows.Forms.FlowLayoutPanel searchPane;
         private System.Windows.Forms.FlowLayoutPanel visualizationPane;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
 
