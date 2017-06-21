@@ -30,23 +30,26 @@ namespace database_project
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.mainLayout = new System.Windows.Forms.TableLayoutPanel();
             this.selectionPane = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.rightPane = new System.Windows.Forms.TableLayoutPanel();
             this.visualizationPane = new System.Windows.Forms.FlowLayoutPanel();
             this.searchPane = new System.Windows.Forms.FlowLayoutPanel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ricettaTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ingredientiTip = new System.Windows.Forms.ToolTip(this.components);
+            this.menuTip = new System.Windows.Forms.ToolTip(this.components);
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.mainLayout.SuspendLayout();
             this.selectionPane.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.rightPane.SuspendLayout();
+            this.searchPane.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainLayout
@@ -65,47 +68,50 @@ namespace database_project
             // 
             // selectionPane
             // 
-            this.selectionPane.Controls.Add(this.pictureBox1);
-            this.selectionPane.Controls.Add(this.pictureBox2);
-            this.selectionPane.Controls.Add(this.pictureBox3);
-            this.selectionPane.Controls.Add(this.pictureBox4);
+            this.selectionPane.Controls.Add(this.button3);
+            this.selectionPane.Controls.Add(this.button2);
+            this.selectionPane.Controls.Add(this.button1);
             this.selectionPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selectionPane.Location = new System.Drawing.Point(3, 3);
             this.selectionPane.Name = "selectionPane";
             this.selectionPane.Size = new System.Drawing.Size(82, 554);
             this.selectionPane.TabIndex = 0;
             // 
-            // pictureBox1
+            // button3
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(79, 74);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.button3.BackgroundImage = global::database_project.Properties.Resources.ricetta;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(3, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(79, 77);
+            this.button3.TabIndex = 3;
+            this.ricettaTip.SetToolTip(this.button3, "ricette");
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
+            // button2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(3, 83);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(79, 74);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.button2.BackgroundImage = global::database_project.Properties.Resources.ingredienti;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(3, 86);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(79, 77);
+            this.button2.TabIndex = 2;
+            this.ingredientiTip.SetToolTip(this.button2, "ingredienti");
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // pictureBox3
+            // button1
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(3, 163);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(79, 74);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(3, 243);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(79, 74);
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
+            this.button1.BackgroundImage = global::database_project.Properties.Resources.menu;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(3, 169);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(79, 77);
+            this.button1.TabIndex = 0;
+            this.menuTip.SetToolTip(this.button1, "menu");
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // rightPane
             // 
@@ -132,11 +138,41 @@ namespace database_project
             // 
             // searchPane
             // 
+            this.searchPane.Controls.Add(this.button5);
+            this.searchPane.Controls.Add(this.textBox1);
+            this.searchPane.Controls.Add(this.button4);
             this.searchPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchPane.Location = new System.Drawing.Point(3, 3);
             this.searchPane.Name = "searchPane";
             this.searchPane.Size = new System.Drawing.Size(488, 27);
             this.searchPane.TabIndex = 2;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(36, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(446, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(3, 29);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.BackgroundImage = global::database_project.Properties.Resources.ingradimento;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.Location = new System.Drawing.Point(3, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(27, 20);
+            this.button5.TabIndex = 0;
+            this.ingredientiTip.SetToolTip(this.button5, "ricerca");
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -153,26 +189,30 @@ namespace database_project
             this.Text = "Ricettario";
             this.mainLayout.ResumeLayout(false);
             this.selectionPane.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.rightPane.ResumeLayout(false);
+            this.searchPane.ResumeLayout(false);
+            this.searchPane.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
+       
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel mainLayout;
         private System.Windows.Forms.FlowLayoutPanel selectionPane;
         private System.Windows.Forms.TableLayoutPanel rightPane;
         private System.Windows.Forms.FlowLayoutPanel visualizationPane;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.FlowLayoutPanel searchPane;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolTip ricettaTip;
+        private System.Windows.Forms.ToolTip ingredientiTip;
+        private System.Windows.Forms.ToolTip menuTip;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }
 

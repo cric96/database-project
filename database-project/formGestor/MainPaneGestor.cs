@@ -10,29 +10,38 @@ namespace database_project.formGestor
 {
     public class MainPaneGestor : PaneGestor
     {
+        private static readonly MainPaneGestor SINGLETON = new MainPaneGestor();
         private TableLayoutPanel mainTable;
-
-        public MainPaneGestor(TableLayoutPanel main)
+        public static MainPaneGestor getInstance()
         {
-            if(main == null)
+            return SINGLETON;
+        }
+        public void setMainPane(TableLayoutPanel pane)
+        {
+            if(this.mainTable != null)
+            {
+                throw new ApplicationException("the table is already set");
+            }
+            if(pane == null)
             {
                 throw new ArgumentNullException();
             }
-            this.mainTable = main;
+            this.mainTable = pane;
         }
+        private MainPaneGestor() {}
         public Panel getCurrentPanel()
         {
             return this.getMainChild();
         }
-
-        public void enableShowing()
+        
+        public void enableShowingSearch()
         {
-
+            this.getSearchPanel().Show();
         }
 
-        public void disableShowing()
+        public void disableShowingSearch()
         {
-
+            this.getSearchPanel().Hide();
         }
 
         public void setPanel(Panel aPanel)
@@ -52,7 +61,14 @@ namespace database_project.formGestor
 
         private Panel getSearchPanel()
         {
-            return (Panel)this.mainTable.Controls.GetEnumerator().Current;
+            return (Panel)(Panel)this.mainTable.GetControlFromPosition(0, 0);
+        }
+        private void checkInitilized()
+        {
+            if(this.mainTable == null)
+            {
+                throw new ApplicationException("the table is not already set");
+            }
         }
     }
 }

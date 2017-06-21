@@ -84,5 +84,20 @@
   <ItemGroup>
     <None Include="Resources\icon.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="paneVisualization\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ingradimento.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ricetta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ingredienti.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

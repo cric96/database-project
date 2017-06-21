@@ -17,18 +17,9 @@ namespace database_project
         public Main()
         {
             InitializeComponent();
-            gestor = new MainPaneGestor(rightPane);
-
-            Console.Out.Write(gestor.getCurrentPanel().Name);
-            Panel pane = new Panel();
-            pane.Name = "myPane";
-            gestor.setPanel(pane);
-            Console.Out.Write(gestor.getCurrentPanel().Name);
-            FlowLayoutPanel test = new FlowLayoutPanel();
-            test.Name = "Apane";
-            gestor.setPanel(test);
-            Console.Out.Write(gestor.getCurrentPanel().Name);
+            gestor = MainPaneGestor.getInstance();
+            gestor.setMainPane(rightPane);    
         }
-        
+
     }
 }
