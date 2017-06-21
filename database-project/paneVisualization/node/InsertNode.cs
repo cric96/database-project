@@ -9,12 +9,9 @@ namespace database_project.paneVisualization.node
 {
     class InsertNode : AbstractImageNode
     {
-        private Button imageButton;
-        public InsertNode(EventHandler action) : base(Properties.Resources.ingradimento)
+        public InsertNode(EventHandler action) : base(Properties.Resources.addizione)
         {
-            
-            imageButton = new Button();
-            imageButton.Click += action;
+            this.getImage().Click += action;
         }
     }
 }

@@ -17,12 +17,16 @@ namespace database_project.paneVisualization
             main = new TableLayoutPanel();
             main.Controls.Add(filter.getPanel(), 0, 0);
             FlowLayoutPanel imagesPane = new FlowLayoutPanel();
+            imagesPane.AutoScroll = true;
             foreach(ImageNode image in images)
             {
                 imagesPane.Controls.Add(image.getImage());
             }
+            
             main.Controls.Add(imagesPane, 0, 1);
+            imagesPane.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Top;
         }
+
         public abstract void search(string value);
 
         Panel Pane.getPanel()

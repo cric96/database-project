@@ -36,6 +36,7 @@ namespace database_project.paneVisualization
         }
         private static void stupid_call(object sender, EventArgs e)
         {
+            System.Console.Out.Write("Click");
         }
         internal class SimpleFilter : FilterNode
         {

@@ -63,6 +63,16 @@ namespace database_project.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addizione {
+            get {
+                object obj = ResourceManager.GetObject("addizione", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ingradimento {
             get {
                 object obj = ResourceManager.GetObject("ingradimento", resourceCulture);
