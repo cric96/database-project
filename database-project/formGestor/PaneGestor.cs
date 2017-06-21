@@ -12,8 +12,6 @@ namespace database_project.formGestor
         Panel getCurrentPanel();
         /* set a panel into current main panel */
         void setPanel(Panel aPanel);
-        /* set to active to the search bar */
-        void isSearchShowing(bool active);
 
     }
 }
