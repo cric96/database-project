@@ -1,4 +1,5 @@
 ﻿using database_project.formGestor;
+using database_project.paneVisualization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,8 +19,27 @@ namespace database_project
         {
             InitializeComponent();
             gestor = MainPaneGestor.getInstance();
-            gestor.setMainPane(rightPane);    
+            gestor.setMainPane(rightPane);
+            gestor.setPanel(PaneFactory.getMainPane().getPanel());
+            gestor.disableShowingSearch();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            gestor.enableShowingSearch();
+            gestor.setPanel(new Panel());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            gestor.enableShowingSearch();
+            gestor.setPanel(new Panel());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            gestor.enableShowingSearch();
+            gestor.setPanel(new Panel());
+        }
     }
 }

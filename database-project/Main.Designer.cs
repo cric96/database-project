@@ -88,6 +88,7 @@ namespace database_project
             this.button3.TabIndex = 3;
             this.ricettaTip.SetToolTip(this.button3, "ricette");
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -100,6 +101,7 @@ namespace database_project
             this.button2.TabIndex = 2;
             this.ingredientiTip.SetToolTip(this.button2, "ingredienti");
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -112,6 +114,7 @@ namespace database_project
             this.button1.TabIndex = 0;
             this.menuTip.SetToolTip(this.button1, "menu");
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // rightPane
             // 
@@ -119,6 +122,7 @@ namespace database_project
             this.rightPane.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.rightPane.Controls.Add(this.visualizationPane, 0, 1);
             this.rightPane.Controls.Add(this.searchPane, 0, 0);
+            this.rightPane.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rightPane.Location = new System.Drawing.Point(91, 3);
             this.rightPane.Name = "rightPane";
             this.rightPane.RowCount = 2;

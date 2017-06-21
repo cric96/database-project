@@ -50,7 +50,9 @@ namespace database_project.formGestor
             {
                 throw new ArgumentNullException();
             }
-            this.mainTable.Controls.Add(aPanel,0,1); 
+            this.mainTable.Controls.Remove(this.getMainChild());
+            this.mainTable.Controls.Add(aPanel,0,1);
+            aPanel.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Top;
         }
 
         private Panel getMainChild()
