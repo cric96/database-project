@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace database_project.paneVisualization
 {
-    public interface Pane
+    interface PaneQueryable : Pane
     {
-        Panel getPanel();
-        
+        void search(String value);
     }
 }

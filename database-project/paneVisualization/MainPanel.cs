@@ -16,10 +16,17 @@ namespace database_project.paneVisualization
         {
             main = new TableLayoutPanel();
             Label welcome = new Label();
+            welcome.BackColor = System.Drawing.Color.Transparent;
+            welcome.TextAlign = ContentAlignment.TopCenter;
             welcome.Text = "Benvenuto!";
+            welcome.Font = new Font("Times new roman", 20);
+            welcome.ForeColor = Color.Red;
+            welcome.Size = new Size(400, 50);
             Label clickToContinue = new Label();
+            clickToContinue.BackColor = System.Drawing.Color.Transparent;
             clickToContinue.Text = "Clicca un'immagine per iniziare ad usare il ricettario..";
             clickToContinue.Size = new Size(400, 100);
+            clickToContinue.TextAlign = ContentAlignment.TopCenter;
             main.Controls.Add(welcome);
             main.Controls.Add(clickToContinue);
         }

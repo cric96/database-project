@@ -20,26 +20,26 @@ namespace database_project
             InitializeComponent();
             gestor = MainPaneGestor.getInstance();
             gestor.setMainPane(rightPane);
-            gestor.setPanel(PaneFactory.getMainPane().getPanel());
+            gestor.setPanel(PaneFactory.getMainPane());
             gestor.disableShowingSearch();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             gestor.enableShowingSearch();
-            gestor.setPanel(new Panel());
+            gestor.setPanel(PaneFactory.getBasic());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             gestor.enableShowingSearch();
-            gestor.setPanel(new Panel());
+            gestor.setPanel(PaneFactory.getBasic());
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             gestor.enableShowingSearch();
-            gestor.setPanel(new Panel());
+            gestor.setPanel(PaneFactory.getBasic());
         }
     }
 }

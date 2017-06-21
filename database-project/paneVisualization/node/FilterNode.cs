@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace database_project.paneVisualization
+namespace database_project.paneVisualization.node
 {
-    public interface Pane
+    interface FilterNode
     {
         Panel getPanel();
-        
     }
 }

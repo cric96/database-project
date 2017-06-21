@@ -53,9 +53,15 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="paneVisualization\BasicPanelVisualization.cs" />
     <Compile Include="paneVisualization\MainPanel.cs" />
+    <Compile Include="paneVisualization\node\AbstractImageNode.cs" />
+    <Compile Include="paneVisualization\node\FilterNode.cs" />
+    <Compile Include="paneVisualization\node\ImageNode.cs" />
+    <Compile Include="paneVisualization\node\InsertNode.cs" />
     <Compile Include="paneVisualization\Pane.cs" />
     <Compile Include="paneVisualization\PaneFactory.cs" />
+    <Compile Include="paneVisualization\PaneQueryable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Main.resx">
@@ -87,7 +93,9 @@
   <ItemGroup>
     <None Include="Resources\icon.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icon %284%29.ico" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ingradimento.jpg" />
   </ItemGroup>
@@ -99,6 +107,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\menu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sfondoMain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sfondo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using database_project.paneVisualization;
+using System;
 using System.Collections;
 using System.Drawing;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace database_project.formGestor
     {
         private static readonly MainPaneGestor SINGLETON = new MainPaneGestor();
         private TableLayoutPanel mainTable;
+        private Pane current;
         public static MainPaneGestor getInstance()
         {
             return SINGLETON;
@@ -29,11 +31,11 @@ namespace database_project.formGestor
             this.mainTable = pane;
         }
         private MainPaneGestor() {}
-        public Panel getCurrentPanel()
+        public Pane getCurrentPanel()
         {
-            return this.getMainChild();
+            return this.current;
         }
-        
+
         public void enableShowingSearch()
         {
             this.getSearchPanel().Show();
@@ -44,26 +46,24 @@ namespace database_project.formGestor
             this.getSearchPanel().Hide();
         }
 
-        public void setPanel(Panel aPanel)
+        public void setPanel(Pane aPane)
         {
-            if(aPanel == null)
+            if(aPane == null)
             {
                 throw new ArgumentNullException();
             }
-            this.mainTable.Controls.Remove(this.getMainChild());
-            this.mainTable.Controls.Add(aPanel,0,1);
-            aPanel.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Top;
-        }
-
-        private Panel getMainChild()
-        {
-           
-            return (Panel)this.mainTable.GetControlFromPosition(0,1);
+            if (this.current != null)
+            {
+                this.mainTable.Controls.Remove(this.current.getPanel());
+            }
+            this.current = aPane;
+            this.mainTable.Controls.Add(aPane.getPanel(),0,1);
+            aPane.getPanel().Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Top;
         }
 
         private Panel getSearchPanel()
         {
-            return (Panel)(Panel)this.mainTable.GetControlFromPosition(0, 0);
+            return (Panel)this.mainTable.GetControlFromPosition(0, 0);
         }
         private void checkInitilized()
         {

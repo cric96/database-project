@@ -1,4 +1,5 @@
-﻿using System;
+﻿using database_project.paneVisualization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,9 @@ namespace database_project.formGestor
 {
     interface PaneGestor {
         /* return the current pane that is showing*/
-        Panel getCurrentPanel();
+        Pane getCurrentPanel();
         /* set a panel into current main panel */
-        void setPanel(Panel aPanel);
+        void setPanel(Pane aPanel);
 
     }
 }
