@@ -40,12 +40,12 @@ namespace database_project
             this.rightPane = new System.Windows.Forms.TableLayoutPanel();
             this.visualizationPane = new System.Windows.Forms.FlowLayoutPanel();
             this.searchPane = new System.Windows.Forms.FlowLayoutPanel();
+            this.button5 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.ricettaTip = new System.Windows.Forms.ToolTip(this.components);
             this.ingredientiTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuTip = new System.Windows.Forms.ToolTip(this.components);
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.mainLayout.SuspendLayout();
             this.selectionPane.SuspendLayout();
             this.rightPane.SuspendLayout();
@@ -81,6 +81,7 @@ namespace database_project
             // 
             this.button3.BackgroundImage = global::database_project.Properties.Resources.ricetta;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(3, 3);
             this.button3.Name = "button3";
@@ -94,6 +95,7 @@ namespace database_project
             // 
             this.button2.BackgroundImage = global::database_project.Properties.Resources.ingredienti;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(3, 86);
             this.button2.Name = "button2";
@@ -107,6 +109,7 @@ namespace database_project
             // 
             this.button1.BackgroundImage = global::database_project.Properties.Resources.menu;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(3, 169);
             this.button1.Name = "button1";
@@ -151,11 +154,24 @@ namespace database_project
             this.searchPane.Size = new System.Drawing.Size(488, 27);
             this.searchPane.TabIndex = 2;
             // 
+            // button5
+            // 
+            this.button5.BackgroundImage = global::database_project.Properties.Resources.ingradimento;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.Location = new System.Drawing.Point(3, 3);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(27, 20);
+            this.button5.TabIndex = 0;
+            this.ingredientiTip.SetToolTip(this.button5, "ricerca");
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(36, 3);
+            this.textBox1.Location = new System.Drawing.Point(30, 3);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(446, 20);
+            this.textBox1.Size = new System.Drawing.Size(449, 20);
             this.textBox1.TabIndex = 1;
             // 
             // button4
@@ -166,17 +182,6 @@ namespace database_project
             this.button4.TabIndex = 2;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImage = global::database_project.Properties.Resources.ingradimento;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Location = new System.Drawing.Point(3, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(27, 20);
-            this.button5.TabIndex = 0;
-            this.ingredientiTip.SetToolTip(this.button5, "ricerca");
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
