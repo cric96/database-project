@@ -32,5 +32,15 @@ namespace database_project.Properties {
                 return ((string)(this["RicettarioConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=Ricettario;Integrated Security=True")]
+        public string RicettarioConnectionString1 {
+            get {
+                return ((string)(this["RicettarioConnectionString1"]));
+            }
+        }
     }
 }

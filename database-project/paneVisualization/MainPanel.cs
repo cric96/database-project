@@ -1,4 +1,5 @@
-﻿using System;
+﻿using database_project.graphicsUtility;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -15,18 +16,18 @@ namespace database_project.paneVisualization
         public MainPanel()
         {
             main = new TableLayoutPanel();
-            Label welcome = new Label();
-            welcome.BackColor = System.Drawing.Color.Transparent;
-            welcome.TextAlign = ContentAlignment.TopCenter;
-            welcome.Text = "Benvenuto!";
-            welcome.Font = new Font("Times new roman", 20);
-            welcome.ForeColor = Color.Red;
-            welcome.Size = new Size(400, 50);
-            Label clickToContinue = new Label();
-            clickToContinue.BackColor = System.Drawing.Color.Transparent;
-            clickToContinue.Text = "Clicca un'immagine per iniziare ad usare il ricettario..";
-            clickToContinue.Size = new Size(400, 100);
-            clickToContinue.TextAlign = ContentAlignment.TopCenter;
+            //Creazione dei label : Welcome
+            Label welcome = labelFactory.createAdvanceLabel("Benvenuto!", new Font("Times new roman", 20),
+                                                            new Size(400, 50), Color.Red,  ContentAlignment.TopCenter);
+            
+            //Clicca per continuare
+            Label clickToContinue = labelFactory.createAdvanceLabel("Clicca un'immagine per iniziare ad usare il ricettario..",
+                                                                     new Font("Colibrì", 10),
+                                                                     new Size(400, 100),
+                                                                     Color.Black,
+                                                                     ContentAlignment.TopCenter);
+           
+            //Aggiunta al panello principale
             main.Controls.Add(welcome);
             main.Controls.Add(clickToContinue);
         }

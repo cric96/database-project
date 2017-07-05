@@ -1,4 +1,6 @@
-﻿using database_project.paneVisualization.node;
+﻿using database_project.formGestor;
+using database_project.paneVisualization.insertPane;
+using database_project.paneVisualization.node;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +38,7 @@ namespace database_project.paneVisualization
         }
         private static void stupid_call(object sender, EventArgs e)
         {
-            System.Console.Out.Write("Click");
+            MainPaneGestor.getInstance().setPanel(InsertPaneFactory.getInsertIngredient());
         }
         internal class SimpleFilter : FilterNode
         {

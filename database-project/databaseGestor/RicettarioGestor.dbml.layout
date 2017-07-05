@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.75, 16.375" name="RicettarioGestor">
+  <DataContextMoniker Name="/RicettarioGestorDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4ec44f35-67a5-422f-9e13-44b214658c03" absoluteBounds="6.25, 3.875, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Alternativo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a8e30ec-26c8-43f2-b283-8a1c40e5006d" absoluteBounds="6.265, 4.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66cbe47b-bb4e-4489-b404-7c2e05c7765e" absoluteBounds="4.5, 12.875, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Assemblaggio" />
+      <nestedChildShapes>
+        <elementListCompartment Id="45581b27-b887-475c-b1ac-aac0af024fb3" absoluteBounds="4.515, 13.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c235f0c7-ea9e-4c61-899c-4cd7b4cf036e" absoluteBounds="3.5, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Caratteristica" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1321b477-287b-42c0-8cc2-3042af3d3cec" absoluteBounds="3.515, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2da8359e-5fdd-4124-b9a2-3115fcbb269f" absoluteBounds="6.25, 1.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Caratterizzante" />
+      <nestedChildShapes>
+        <elementListCompartment Id="33b430f9-9493-48ac-baed-52c7c6e9e2d5" absoluteBounds="6.265, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="702ce76a-a6a8-442a-b8cb-a4b311430dc2" absoluteBounds="0.75, 3.875, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Categoria" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c045f276-ea28-4ae1-8421-9e7376fd05c4" absoluteBounds="0.765, 4.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aba49418-1694-4f64-8917-a855eeb7d8eb" absoluteBounds="9, 6.5, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Consumo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="548a6400-2434-4a29-bae8-0c552f83d5cb" absoluteBounds="9.015, 6.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5be55341-060b-4d37-95ca-55dbe0376d7d" absoluteBounds="3.5, 3.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Ingrediente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="487840f3-f076-4fbf-86a8-e141d8b5b309" absoluteBounds="3.515, 4.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1db5669c-e26e-448a-b713-84fe130db0e8" absoluteBounds="6.25, 6.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/IngrUDM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df0e6b79-2d61-4e3a-8a42-267c16b2391e" absoluteBounds="6.265, 7.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6b450139-2564-4456-a928-dcca309e3971" absoluteBounds="1.75, 14.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Menù" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5cb46168-6da5-4e85-a278-0fd3aa39655d" absoluteBounds="1.7650000000000001, 15.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="301125d2-dcf1-4059-9b8b-0c553d239cfc" absoluteBounds="1.5, 13, 2, 1.0016910807291666">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Portata" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a57274c5-a5be-493e-ac47-6fc52bad85e5" absoluteBounds="1.5150000000000001, 13.46, 1.9700000000000002, 0.44169108072916669" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e13f2e57-9855-4cb8-a485-7c2ac295568b" absoluteBounds="0.75, 9.125, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Ricetta" />
+      <nestedChildShapes>
+        <elementListCompartment Id="127a9c89-851e-46e2-b3af-02dcb393c0e9" absoluteBounds="0.765, 9.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c540a2a-c53b-4196-aee1-e6aeb704c7c4" absoluteBounds="3.5, 9.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/RicettaStrumento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6026b3ef-cd4e-4eee-808c-478820891f63" absoluteBounds="3.515, 10.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="193a12b5-172a-4dcd-871b-524790ac5c0f" absoluteBounds="6.25, 9.5, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Step" />
+      <nestedChildShapes>
+        <elementListCompartment Id="557745c9-b3c0-4f54-88a8-4746db4d6a66" absoluteBounds="6.265, 9.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="42dea9b7-9aeb-4dd4-aab4-9c8ba0b772e9" absoluteBounds="8.75, 2.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Strumento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f6f8e1c4-c548-441f-8223-0b34cb473644" absoluteBounds="8.765, 2.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="78bd710d-77d1-4a56-b4be-7383d15d672e" absoluteBounds="3.5, 7, 2, 1.0016910807291666">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/UnitàDiMisura" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2b6a6900-fe4d-48f9-b5d4-4dabbfcb1aa1" absoluteBounds="3.515, 7.46, 1.9700000000000002, 0.44169108072916669" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1d4d8df3-6a38-4176-8c0f-41c82c6d9184" absoluteBounds="11.5, 3, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Uso" />
+      <nestedChildShapes>
+        <elementListCompartment Id="80057bf7-3a44-4da6-8aaf-2f9c768cdd6e" absoluteBounds="11.515, 3.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c19d0814-0f10-424d-8a5d-9af3756fa5db" absoluteBounds="12.5, 5.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/RicettarioGestorDataContext/Utilizzo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2afacbd0-765f-4940-a23b-ea7352e6c5dd" absoluteBounds="12.515, 6.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 2.00564697265625); (6.25 : 2.00564697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Caratteristica/Caratteristica_Caratterizzante" />
+      <nodes>
+        <classShapeMoniker Id="c235f0c7-ea9e-4c61-899c-4cd7b4cf036e" />
+        <classShapeMoniker Id="2da8359e-5fdd-4124-b9a2-3115fcbb269f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.47199625651042); (6.25 : 4.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Ingrediente/Ingrediente_Alternativo" />
+      <nodes>
+        <classShapeMoniker Id="5be55341-060b-4d37-95ca-55dbe0376d7d" />
+        <classShapeMoniker Id="4ec44f35-67a5-422f-9e13-44b214658c03" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.11099812825521); (6.25 : 4.11099812825521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Ingrediente/Ingrediente_Alternativo1" />
+      <nodes>
+        <classShapeMoniker Id="5be55341-060b-4d37-95ca-55dbe0376d7d" />
+        <classShapeMoniker Id="4ec44f35-67a5-422f-9e13-44b214658c03" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 3.75); (5.875 : 3.375); (5.875 : 3.44399251302083); (6.25 : 3.06899251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Ingrediente/Ingrediente_Caratterizzante" />
+      <nodes>
+        <classShapeMoniker Id="5be55341-060b-4d37-95ca-55dbe0376d7d" />
+        <classShapeMoniker Id="2da8359e-5fdd-4124-b9a2-3115fcbb269f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.47199625651042); (3.5 : 4.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Categoria/Categoria_Ingrediente" />
+      <nodes>
+        <classShapeMoniker Id="702ce76a-a6a8-442a-b8cb-a4b311430dc2" />
+        <classShapeMoniker Id="5be55341-060b-4d37-95ca-55dbe0376d7d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 7.44314697265625); (9 : 7.44314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/IngrUDM/IngrUDM_Consumo" />
+      <nodes>
+        <classShapeMoniker Id="1db5669c-e26e-448a-b713-84fe130db0e8" />
+        <classShapeMoniker Id="aba49418-1694-4f64-8917-a855eeb7d8eb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.1362939453125); (5.875 : 5.5112939453125); (5.875 : 7.44314697265625); (6.25 : 7.44314697265625)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Ingrediente/Ingrediente_IngrUDM" />
+      <nodes>
+        <classShapeMoniker Id="5be55341-060b-4d37-95ca-55dbe0376d7d" />
+        <classShapeMoniker Id="1db5669c-e26e-448a-b713-84fe130db0e8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.75 : 15.4431469726562); (5.5 : 15.4431469726562); (5.5 : 14.0689925130208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Menù/Menù_Assemblaggio" />
+      <nodes>
+        <classShapeMoniker Id="6b450139-2564-4456-a928-dcca309e3971" />
+        <classShapeMoniker Id="66cbe47b-bb4e-4489-b404-7c2e05c7765e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.09375 : 11.6651025390625); (1.09375 : 12.90625); (2.04166666666667 : 12.90625 : JumpStart); (2.20833333333333 : 12.90625 : JumpEnd); (4.5 : 12.90625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Ricetta/Ricetta_Assemblaggio" />
+      <nodes>
+        <classShapeMoniker Id="e13f2e57-9855-4cb8-a485-7c2ac295568b" />
+        <classShapeMoniker Id="66cbe47b-bb4e-4489-b404-7c2e05c7765e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.125 : 13); (2.125 : 11.6651025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Portata/Portata_Ricetta" />
+      <nodes>
+        <classShapeMoniker Id="301125d2-dcf1-4059-9b8b-0c553d239cfc" />
+        <classShapeMoniker Id="e13f2e57-9855-4cb8-a485-7c2ac295568b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 10.4431469726562); (3.5 : 10.4431469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Ricetta/Ricetta_RicettaStrumento" />
+      <nodes>
+        <classShapeMoniker Id="e13f2e57-9855-4cb8-a485-7c2ac295568b" />
+        <classShapeMoniker Id="0c540a2a-c53b-4196-aee1-e6aeb704c7c4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 10.4815991210937); (10 : 10.4815991210937); (10 : 8.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Step/Step_Consumo" />
+      <nodes>
+        <classShapeMoniker Id="193a12b5-172a-4dcd-871b-524790ac5c0f" />
+        <classShapeMoniker Id="aba49418-1694-4f64-8917-a855eeb7d8eb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 10.4431469726562); (6.25 : 10.4431469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/RicettaStrumento/RicettaStrumento_Step" />
+      <nodes>
+        <classShapeMoniker Id="0c540a2a-c53b-4196-aee1-e6aeb704c7c4" />
+        <classShapeMoniker Id="193a12b5-172a-4dcd-871b-524790ac5c0f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.78491902669271); (6.25 : 7.78491902669271)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/UnitàDiMisura/UnitàDiMisura_IngrUDM" />
+      <nodes>
+        <classShapeMoniker Id="78bd710d-77d1-4a56-b4be-7383d15d672e" />
+        <classShapeMoniker Id="1db5669c-e26e-448a-b713-84fe130db0e8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 9.95954706054687); (9.91666666666667 : 9.95954706054687 : JumpStart); (10.0833333333333 : 9.95954706054687 : JumpEnd); (11.96875 : 9.95954706054687); (11.96875 : 4.57859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Step/Step_Uso" />
+      <nodes>
+        <classShapeMoniker Id="193a12b5-172a-4dcd-871b-524790ac5c0f" />
+        <classShapeMoniker Id="1d4d8df3-6a38-4176-8c0f-41c82c6d9184" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.75 : 3.73640055338542); (11.5 : 3.73640055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Strumento/Strumento_Uso" />
+      <nodes>
+        <classShapeMoniker Id="42dea9b7-9aeb-4dd4-aab4-9c8ba0b772e9" />
+        <classShapeMoniker Id="1d4d8df3-6a38-4176-8c0f-41c82c6d9184" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 10.0653214863281); (6 : 10.0653214863281); (6 : 9.25); (9.91666666666667 : 9.25 : JumpStart); (10.0833333333333 : 9.25 : JumpEnd); (11.8854166666667 : 9.25 : JumpStart); (12.0520833333333 : 9.25 : JumpEnd); (13.5 : 9.25); (13.5 : 7.2612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/RicettaStrumento/RicettaStrumento_Utilizzo" />
+      <nodes>
+        <classShapeMoniker Id="0c540a2a-c53b-4196-aee1-e6aeb704c7c4" />
+        <classShapeMoniker Id="c19d0814-0f10-424d-8a5d-9af3756fa5db" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.84375 : 4.47280110677083); (8.84375 : 6.15625); (11.8854166666667 : 6.15625 : JumpStart); (12.0520833333333 : 6.15625 : JumpEnd); (12.5 : 6.15625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RicettarioGestorDataContext/Strumento/Strumento_Utilizzo" />
+      <nodes>
+        <classShapeMoniker Id="42dea9b7-9aeb-4dd4-aab4-9c8ba0b772e9" />
+        <classShapeMoniker Id="c19d0814-0f10-424d-8a5d-9af3756fa5db" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -23,7 +23,7 @@ namespace database_project.databaseGestor
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Ricettario")]
-	public partial class DatabaseRicettarioDataContext : System.Data.Linq.DataContext
+	public partial class RicettarioGestorDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -51,15 +51,15 @@ namespace database_project.databaseGestor
     partial void InsertIngrediente(Ingrediente instance);
     partial void UpdateIngrediente(Ingrediente instance);
     partial void DeleteIngrediente(Ingrediente instance);
-    partial void InsertPortata(Portata instance);
-    partial void UpdatePortata(Portata instance);
-    partial void DeletePortata(Portata instance);
-    partial void InsertMenù(Menù instance);
-    partial void UpdateMenù(Menù instance);
-    partial void DeleteMenù(Menù instance);
     partial void InsertIngrUDM(IngrUDM instance);
     partial void UpdateIngrUDM(IngrUDM instance);
     partial void DeleteIngrUDM(IngrUDM instance);
+    partial void InsertMenù(Menù instance);
+    partial void UpdateMenù(Menù instance);
+    partial void DeleteMenù(Menù instance);
+    partial void InsertPortata(Portata instance);
+    partial void UpdatePortata(Portata instance);
+    partial void DeletePortata(Portata instance);
     partial void InsertRicetta(Ricetta instance);
     partial void UpdateRicetta(Ricetta instance);
     partial void DeleteRicetta(Ricetta instance);
@@ -83,31 +83,31 @@ namespace database_project.databaseGestor
     partial void DeleteUtilizzo(Utilizzo instance);
     #endregion
 		
-		public DatabaseRicettarioDataContext() : 
-				base(global::database_project.Properties.Settings.Default.RicettarioConnectionString, mappingSource)
+		public RicettarioGestorDataContext() : 
+				base(global::database_project.Properties.Settings.Default.RicettarioConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DatabaseRicettarioDataContext(string connection) : 
+		public RicettarioGestorDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DatabaseRicettarioDataContext(System.Data.IDbConnection connection) : 
+		public RicettarioGestorDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DatabaseRicettarioDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public RicettarioGestorDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DatabaseRicettarioDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public RicettarioGestorDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -169,11 +169,11 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		public System.Data.Linq.Table<Portata> Portata
+		public System.Data.Linq.Table<IngrUDM> IngrUDM
 		{
 			get
 			{
-				return this.GetTable<Portata>();
+				return this.GetTable<IngrUDM>();
 			}
 		}
 		
@@ -185,11 +185,11 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		public System.Data.Linq.Table<IngrUDM> IngrUDM
+		public System.Data.Linq.Table<Portata> Portata
 		{
 			get
 			{
-				return this.GetTable<IngrUDM>();
+				return this.GetTable<Portata>();
 			}
 		}
 		
@@ -281,7 +281,7 @@ namespace database_project.databaseGestor
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltIdIngrediente", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltIdIngrediente", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int AltIdIngrediente
 		{
 			get
@@ -618,7 +618,7 @@ namespace database_project.databaseGestor
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCaratteristica", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCaratteristica", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int idCaratteristica
 		{
 			get
@@ -638,7 +638,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -658,7 +658,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Descrizione
 		{
 			get
@@ -920,7 +920,7 @@ namespace database_project.databaseGestor
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Nome
 		{
 			get
@@ -940,7 +940,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Descrizione
 		{
 			get
@@ -1016,8 +1016,6 @@ namespace database_project.databaseGestor
 		
 		private string _NomeUDM;
 		
-		private int _idIngrUDM;
-		
 		private int _idRicetta;
 		
 		private int _idRicettaStrum;
@@ -1038,8 +1036,6 @@ namespace database_project.databaseGestor
     partial void OnidIngredienteChanged();
     partial void OnNomeUDMChanging(string value);
     partial void OnNomeUDMChanged();
-    partial void OnidIngrUDMChanging(int value);
-    partial void OnidIngrUDMChanged();
     partial void OnidRicettaChanging(int value);
     partial void OnidRicettaChanged();
     partial void OnidRicettaStrumChanging(int value);
@@ -1081,7 +1077,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeUDM", DbType="VarChar(1) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeUDM", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string NomeUDM
 		{
 			get
@@ -1101,30 +1097,6 @@ namespace database_project.databaseGestor
 					this._NomeUDM = value;
 					this.SendPropertyChanged("NomeUDM");
 					this.OnNomeUDMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idIngrUDM", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idIngrUDM
-		{
-			get
-			{
-				return this._idIngrUDM;
-			}
-			set
-			{
-				if ((this._idIngrUDM != value))
-				{
-					if (this._IngrUDM.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidIngrUDMChanging(value);
-					this.SendPropertyChanging();
-					this._idIngrUDM = value;
-					this.SendPropertyChanged("idIngrUDM");
-					this.OnidIngrUDMChanged();
 				}
 			}
 		}
@@ -1177,7 +1149,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeStep", DbType="VarChar(1) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeStep", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string NomeStep
 		{
 			get
@@ -1221,7 +1193,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IngrUDM_Consumo", Storage="_IngrUDM", ThisKey="idIngrediente,NomeUDM,idIngrUDM", OtherKey="idIngrediente,NomeUDM,id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IngrUDM_Consumo", Storage="_IngrUDM", ThisKey="idIngrediente,NomeUDM", OtherKey="idIngrediente,NomeUDM", IsForeignKey=true)]
 		public IngrUDM IngrUDM
 		{
 			get
@@ -1246,13 +1218,11 @@ namespace database_project.databaseGestor
 						value.Consumo.Add(this);
 						this._idIngrediente = value.idIngrediente;
 						this._NomeUDM = value.NomeUDM;
-						this._idIngrUDM = value.id;
 					}
 					else
 					{
 						this._idIngrediente = default(int);
 						this._NomeUDM = default(string);
-						this._idIngrUDM = default(int);
 					}
 					this.SendPropertyChanged("IngrUDM");
 				}
@@ -1362,7 +1332,7 @@ namespace database_project.databaseGestor
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idIngrediente", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idIngrediente", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int idIngrediente
 		{
 			get
@@ -1382,7 +1352,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -1402,7 +1372,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeCat", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeCat", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string NomeCat
 		{
 			get
@@ -1581,234 +1551,6 @@ namespace database_project.databaseGestor
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Portata")]
-	public partial class Portata : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Nome;
-		
-		private EntitySet<Ricetta> _Ricetta;
-		
-    #region Definizioni metodo Extensibility
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNomeChanging(string value);
-    partial void OnNomeChanged();
-    #endregion
-		
-		public Portata()
-		{
-			this._Ricetta = new EntitySet<Ricetta>(new Action<Ricetta>(this.attach_Ricetta), new Action<Ricetta>(this.detach_Ricetta));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Nome
-		{
-			get
-			{
-				return this._Nome;
-			}
-			set
-			{
-				if ((this._Nome != value))
-				{
-					this.OnNomeChanging(value);
-					this.SendPropertyChanging();
-					this._Nome = value;
-					this.SendPropertyChanged("Nome");
-					this.OnNomeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portata_Ricetta", Storage="_Ricetta", ThisKey="Nome", OtherKey="portata")]
-		public EntitySet<Ricetta> Ricetta
-		{
-			get
-			{
-				return this._Ricetta;
-			}
-			set
-			{
-				this._Ricetta.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Ricetta(Ricetta entity)
-		{
-			this.SendPropertyChanging();
-			entity.Portata1 = this;
-		}
-		
-		private void detach_Ricetta(Ricetta entity)
-		{
-			this.SendPropertyChanging();
-			entity.Portata1 = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Menù")]
-	public partial class Menù : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Nome;
-		
-		private string _Tipo;
-		
-		private int _idMenù;
-		
-		private EntitySet<Assemblaggio> _Assemblaggio;
-		
-    #region Definizioni metodo Extensibility
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNomeChanging(string value);
-    partial void OnNomeChanged();
-    partial void OnTipoChanging(string value);
-    partial void OnTipoChanged();
-    partial void OnidMenùChanging(int value);
-    partial void OnidMenùChanged();
-    #endregion
-		
-		public Menù()
-		{
-			this._Assemblaggio = new EntitySet<Assemblaggio>(new Action<Assemblaggio>(this.attach_Assemblaggio), new Action<Assemblaggio>(this.detach_Assemblaggio));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
-		public string Nome
-		{
-			get
-			{
-				return this._Nome;
-			}
-			set
-			{
-				if ((this._Nome != value))
-				{
-					this.OnNomeChanging(value);
-					this.SendPropertyChanging();
-					this._Nome = value;
-					this.SendPropertyChanged("Nome");
-					this.OnNomeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Tipo
-		{
-			get
-			{
-				return this._Tipo;
-			}
-			set
-			{
-				if ((this._Tipo != value))
-				{
-					this.OnTipoChanging(value);
-					this.SendPropertyChanging();
-					this._Tipo = value;
-					this.SendPropertyChanged("Tipo");
-					this.OnTipoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMenù", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idMenù
-		{
-			get
-			{
-				return this._idMenù;
-			}
-			set
-			{
-				if ((this._idMenù != value))
-				{
-					this.OnidMenùChanging(value);
-					this.SendPropertyChanging();
-					this._idMenù = value;
-					this.SendPropertyChanged("idMenù");
-					this.OnidMenùChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Menù_Assemblaggio", Storage="_Assemblaggio", ThisKey="idMenù", OtherKey="idMenù")]
-		public EntitySet<Assemblaggio> Assemblaggio
-		{
-			get
-			{
-				return this._Assemblaggio;
-			}
-			set
-			{
-				this._Assemblaggio.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Assemblaggio(Assemblaggio entity)
-		{
-			this.SendPropertyChanging();
-			entity.Menù = this;
-		}
-		
-		private void detach_Assemblaggio(Assemblaggio entity)
-		{
-			this.SendPropertyChanging();
-			entity.Menù = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.IngrUDM")]
 	public partial class IngrUDM : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1818,8 +1560,6 @@ namespace database_project.databaseGestor
 		private int _idIngrediente;
 		
 		private string _NomeUDM;
-		
-		private int _id;
 		
 		private int _kcalPerUnità;
 		
@@ -1837,8 +1577,6 @@ namespace database_project.databaseGestor
     partial void OnidIngredienteChanged();
     partial void OnNomeUDMChanging(string value);
     partial void OnNomeUDMChanged();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
     partial void OnkcalPerUnitàChanging(int value);
     partial void OnkcalPerUnitàChanged();
     #endregion
@@ -1875,7 +1613,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeUDM", DbType="VarChar(1) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeUDM", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string NomeUDM
 		{
 			get
@@ -1895,26 +1633,6 @@ namespace database_project.databaseGestor
 					this._NomeUDM = value;
 					this.SendPropertyChanged("NomeUDM");
 					this.OnNomeUDMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
 				}
 			}
 		}
@@ -1939,7 +1657,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IngrUDM_Consumo", Storage="_Consumo", ThisKey="idIngrediente,NomeUDM,id", OtherKey="idIngrediente,NomeUDM,idIngrUDM")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IngrUDM_Consumo", Storage="_Consumo", ThisKey="idIngrediente,NomeUDM", OtherKey="idIngrediente,NomeUDM")]
 		public EntitySet<Consumo> Consumo
 		{
 			get
@@ -2053,6 +1771,234 @@ namespace database_project.databaseGestor
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Menù")]
+	public partial class Menù : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Nome;
+		
+		private string _Tipo;
+		
+		private int _idMenù;
+		
+		private EntitySet<Assemblaggio> _Assemblaggio;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnTipoChanging(string value);
+    partial void OnTipoChanged();
+    partial void OnidMenùChanging(int value);
+    partial void OnidMenùChanged();
+    #endregion
+		
+		public Menù()
+		{
+			this._Assemblaggio = new EntitySet<Assemblaggio>(new Action<Assemblaggio>(this.attach_Assemblaggio), new Action<Assemblaggio>(this.detach_Assemblaggio));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Tipo
+		{
+			get
+			{
+				return this._Tipo;
+			}
+			set
+			{
+				if ((this._Tipo != value))
+				{
+					this.OnTipoChanging(value);
+					this.SendPropertyChanging();
+					this._Tipo = value;
+					this.SendPropertyChanged("Tipo");
+					this.OnTipoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMenù", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idMenù
+		{
+			get
+			{
+				return this._idMenù;
+			}
+			set
+			{
+				if ((this._idMenù != value))
+				{
+					this.OnidMenùChanging(value);
+					this.SendPropertyChanging();
+					this._idMenù = value;
+					this.SendPropertyChanged("idMenù");
+					this.OnidMenùChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Menù_Assemblaggio", Storage="_Assemblaggio", ThisKey="idMenù", OtherKey="idMenù")]
+		public EntitySet<Assemblaggio> Assemblaggio
+		{
+			get
+			{
+				return this._Assemblaggio;
+			}
+			set
+			{
+				this._Assemblaggio.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Assemblaggio(Assemblaggio entity)
+		{
+			this.SendPropertyChanging();
+			entity.Menù = this;
+		}
+		
+		private void detach_Assemblaggio(Assemblaggio entity)
+		{
+			this.SendPropertyChanging();
+			entity.Menù = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Portata")]
+	public partial class Portata : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Nome;
+		
+		private EntitySet<Ricetta> _Ricetta;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    #endregion
+		
+		public Portata()
+		{
+			this._Ricetta = new EntitySet<Ricetta>(new Action<Ricetta>(this.attach_Ricetta), new Action<Ricetta>(this.detach_Ricetta));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portata_Ricetta", Storage="_Ricetta", ThisKey="Nome", OtherKey="portata")]
+		public EntitySet<Ricetta> Ricetta
+		{
+			get
+			{
+				return this._Ricetta;
+			}
+			set
+			{
+				this._Ricetta.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Ricetta(Ricetta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Portata1 = this;
+		}
+		
+		private void detach_Ricetta(Ricetta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Portata1 = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ricetta")]
 	public partial class Ricetta : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2115,7 +2061,7 @@ namespace database_project.databaseGestor
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRicetta", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRicetta", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int idRicetta
 		{
 			get
@@ -2135,7 +2081,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -2155,7 +2101,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Descrizione
 		{
 			get
@@ -2175,7 +2121,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Immagine", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Immagine", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
 		public string Immagine
 		{
 			get
@@ -2275,7 +2221,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portata", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portata", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string portata
 		{
 			get
@@ -2486,7 +2432,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRicettaStrum", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRicettaStrum", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int idRicettaStrum
 		{
 			get
@@ -2709,7 +2655,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Nome
 		{
 			get
@@ -2729,7 +2675,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Descrizione
 		{
 			get
@@ -2749,7 +2695,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Immagine", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Immagine", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
 		public string Immagine
 		{
 			get
@@ -2951,7 +2897,7 @@ namespace database_project.databaseGestor
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Immagine", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Immagine", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
 		public string Immagine
 		{
 			get
@@ -2971,7 +2917,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -2991,7 +2937,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Descrizione
 		{
 			get
@@ -3011,7 +2957,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoElettrodom", DbType="VarChar(1)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoElettrodom", DbType="VarChar(20)")]
 		public string TipoElettrodom
 		{
 			get
@@ -3031,7 +2977,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Tipo
 		{
 			get
@@ -3091,7 +3037,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idStrumento", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idStrumento", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int idStrumento
 		{
 			get
@@ -3206,7 +3152,7 @@ namespace database_project.databaseGestor
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Nome
 		{
 			get
@@ -3383,7 +3329,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeStep", DbType="VarChar(1) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeStep", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string NomeStep
 		{
 			get
