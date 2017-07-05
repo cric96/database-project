@@ -29,11 +29,11 @@ namespace database_project
             gestor.enableShowingSearch();
             gestor.setPanel(PaneFactory.getBasic());
         }
-
+        //Ingredienti
         private void button2_Click(object sender, EventArgs e)
         {
-            gestor.enableShowingSearch();
-            gestor.setPanel(PaneFactory.getBasic());
+            gestor.disableShowingSearch();
+            gestor.setPanel(PaneFactory.getIngredientPane());
         }
 
         private void button1_Click(object sender, EventArgs e)

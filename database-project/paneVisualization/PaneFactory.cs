@@ -24,6 +24,30 @@ namespace database_project.paneVisualization
             FilterNode basic = new SimpleFilter();
             return new SimplePane(images, basic);
         }
+
+        public static PaneQueryable getIngredientPane()
+        {
+            ISet<ImageNode> images = new SortedSet<ImageNode>();
+            images.Add(new InsertNode((a,b) =>
+            {
+                MainPaneGestor.getInstance().setPanel(InsertPaneFactory.getInsertIngredient());
+                MainPaneGestor.getInstance().disableShowingSearch();
+            }));
+            FilterNode basic = new SimpleFilter();
+            return new SimplePane(images, basic);
+        }
+
+        public static PaneQueryable getRicettaPane()
+        {
+            ISet<ImageNode> images = new SortedSet<ImageNode>();
+            images.Add(new InsertNode((a, b) =>
+            {
+                MainPaneGestor.getInstance().setPanel(InsertPaneFactory.getInsertIngredient());
+                MainPaneGestor.getInstance().disableShowingSearch();
+            }));
+            FilterNode basic = new SimpleFilter();
+            return new SimplePane(images, basic);
+        }
         private PaneFactory() { }
         internal class SimplePane : BasicPanelVisualization
         {
@@ -36,16 +60,17 @@ namespace database_project.paneVisualization
                 System.Console.Out.WriteLine(value);
             }
         }
-        private static void stupid_call(object sender, EventArgs e)
-        {
-            MainPaneGestor.getInstance().setPanel(InsertPaneFactory.getInsertIngredient());
-        }
+        
         internal class SimpleFilter : FilterNode
         {
             public Panel getPanel()
             {
                 return new Panel();
             }
+        }
+        private static void stupid_call(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -12,5 +12,10 @@ namespace database_project.paneVisualization.insertPane
         {
             return new IngredientInsert();
         }
+
+        public static Pane getInsertRicetta()
+        {
+            return new RicettaInsert();
+        }
     }
 }
