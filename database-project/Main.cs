@@ -27,7 +27,7 @@ namespace database_project
         private void button3_Click(object sender, EventArgs e)
         {
             gestor.enableShowingSearch();
-            gestor.setPanel(PaneFactory.getBasic());
+            gestor.setPanel(PaneFactory.getRicettaPane());
         }
         //Ingredienti
         private void button2_Click(object sender, EventArgs e)

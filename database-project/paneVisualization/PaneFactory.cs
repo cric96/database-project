@@ -42,7 +42,7 @@ namespace database_project.paneVisualization
             ISet<ImageNode> images = new SortedSet<ImageNode>();
             images.Add(new InsertNode((a, b) =>
             {
-                MainPaneGestor.getInstance().setPanel(InsertPaneFactory.getInsertIngredient());
+                MainPaneGestor.getInstance().setPanel(InsertPaneFactory.getInsertRicetta());
                 MainPaneGestor.getInstance().disableShowingSearch();
             }));
             FilterNode basic = new SimpleFilter();

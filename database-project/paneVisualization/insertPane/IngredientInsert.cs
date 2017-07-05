@@ -22,7 +22,7 @@ namespace database_project.paneVisualization.insertPane
         private CheckedListBox checkCaratteristiche;
         private CheckedListBox unitàDiMisura;
         private TextBox box;
-        private RicettarioGestorDataContext db = new RicettarioGestorDataContext();
+        private RicettarioGestorDataContext db = RicettarioDB.getInstance();
 
         public IngredientInsert()
         {

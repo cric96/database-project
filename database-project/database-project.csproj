@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="databaseGestor\RicettarioDB.cs" />
     <Compile Include="databaseGestor\RicettarioGestor.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -63,6 +64,7 @@
     <Compile Include="paneVisualization\BasicPanelVisualization.cs" />
     <Compile Include="paneVisualization\insertPane\IngredientInsert.cs" />
     <Compile Include="paneVisualization\insertPane\InsertPaneFactory.cs" />
+    <Compile Include="paneVisualization\insertPane\RicettaInsert.cs" />
     <Compile Include="paneVisualization\MainPanel.cs" />
     <Compile Include="paneVisualization\node\AbstractImageNode.cs" />
     <Compile Include="paneVisualization\node\FilterNode.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="paneVisualization\PaneQueryable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ricettaUtilities\Difficoltà.cs" />
     <Compile Include="utilities\AllertGestor.cs" />
     <Compile Include="utilities\UtilityImage.cs" />
     <EmbeddedResource Include="Main.resx">
