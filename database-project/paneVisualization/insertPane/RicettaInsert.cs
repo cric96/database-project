@@ -15,10 +15,15 @@ namespace database_project.paneVisualization.insertPane
     class RicettaInsert : Pane
     {
         private TableLayoutPanel mainPanel;
+        private int ricettaStrumentoIndex = 0;
+        
+
         private RicettarioGestorDataContext db = RicettarioDB.getInstance();
         public RicettaInsert()
         {
+
             mainPanel = new TableLayoutPanel();
+            this.mainPanel.AutoScroll = true;
             Size size = new Size(300,20);
             //Label
             Label textRicetta = labelFactory.createAdvanceLabel("Inserisci il nome della ricetta", labelFactory.getGeneralFont(),
@@ -39,6 +44,9 @@ namespace database_project.paneVisualization.insertPane
             Label textImage = labelFactory.createAdvanceLabel("...", labelFactory.getGeneralFont(),
                                                                         size, Color.Black, ContentAlignment.TopLeft);
 
+            Label textDescrizione = labelFactory.createAdvanceLabel("Inserisci la descrizione", labelFactory.getGeneralFont(),
+                                                                        size, Color.Black, ContentAlignment.TopLeft);
+
             //TextBox
             TextBox ricettaText = new TextBox();
             ricettaText.Size = size;
@@ -55,6 +63,10 @@ namespace database_project.paneVisualization.insertPane
             personeText.Size = new Size(20,20);
             personeText.MaxLength = 2;
 
+            //RichTextBox
+
+            RichTextBox descrizione = new RichTextBox();
+            descrizione.Size = new Size(400, 100);
 
             //ComboBox
             ComboBox difficoltàBox = new ComboBox();
@@ -63,6 +75,8 @@ namespace database_project.paneVisualization.insertPane
             ComboBox portataBox = new ComboBox();
             portataBox.Items.AddRange((from c in db.Portata
              select c.Nome).ToArray());
+
+            //FlowLayout
 
             //Button
             Button insertImage = new Button();
@@ -79,8 +93,21 @@ namespace database_project.paneVisualization.insertPane
                     AllertGestor.defaultError("Devi selezionare un'immagine valida");
                 }
             };
-            
-            //Nome Ricetta
+
+            Button addRicetta = new Button();
+            addRicetta.Text = "Aggiungi la ricetta..";
+            addRicetta.Enabled = false;
+
+            Button addSteps = new Button();
+            addSteps.Text = "Inserisci gli step...";
+            addSteps.Size = new Size(200, 25);
+            addSteps.Click += (obj, args) =>
+            {
+                ricettaStrumentoInsert popup = new ricettaStrumentoInsert();
+                popup.StartPosition = FormStartPosition.CenterParent;
+                popup.ShowDialog();
+            };
+            //Name Ricetta
             mainPanel.Controls.Add(textRicetta);
             mainPanel.Controls.Add(ricettaText);
             //Tempo Cottura
@@ -101,6 +128,13 @@ namespace database_project.paneVisualization.insertPane
             //Immagine 
             mainPanel.Controls.Add(insertImage);
             mainPanel.Controls.Add(textImage);
+            //Descrizione
+            mainPanel.Controls.Add(textDescrizione);
+            mainPanel.Controls.Add(descrizione);
+
+            //Inserimento
+            mainPanel.Controls.Add(addRicetta);
+            mainPanel.Controls.Add(addSteps);
         }
         public Panel getPanel()
         {

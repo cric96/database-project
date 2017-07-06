@@ -79,7 +79,8 @@ namespace database_project.paneVisualization.insertPane
             if(e.CurrentValue == CheckState.Unchecked)
             {
                 Form input = new Form();
-                input.Size = new Size(input.Size.Width, 100);
+                Size basicSize = new Size(input.Size.Width, 100);
+                input.Size = basicSize;
                 FlowLayoutPanel pane = new FlowLayoutPanel();
                 TextBox box = new TextBox();
                 Button click = new Button();
@@ -90,6 +91,8 @@ namespace database_project.paneVisualization.insertPane
                 pane.Controls.Add(box);
                 pane.Controls.Add(click);
                 input.StartPosition = FormStartPosition.CenterParent;
+                input.MaximumSize = basicSize;
+                input.MinimumSize = basicSize;
                 input.Text = "Inserisci le calorie";
                 input.Icon = Properties.Resources.iconmain;
                 input.Controls.Add(pane);

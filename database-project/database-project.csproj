@@ -62,6 +62,12 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="paneVisualization\BasicPanelVisualization.cs" />
+    <Compile Include="paneVisualization\insertPane\RicettaStrumentoInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="paneVisualization\insertPane\RicettaStrumentoInsert.Designer.cs">
+      <DependentUpon>RicettaStrumentoInsert.cs</DependentUpon>
+    </Compile>
     <Compile Include="paneVisualization\insertPane\IngredientInsert.cs" />
     <Compile Include="paneVisualization\insertPane\InsertPaneFactory.cs" />
     <Compile Include="paneVisualization\insertPane\RicettaInsert.cs" />
@@ -80,6 +86,9 @@
     <Compile Include="utilities\UtilityImage.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paneVisualization\insertPane\RicettaStrumentoInsert.resx">
+      <DependentUpon>RicettaStrumentoInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
