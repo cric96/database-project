@@ -48,6 +48,9 @@ namespace database_project.databaseGestor
     partial void InsertConsumo(Consumo instance);
     partial void UpdateConsumo(Consumo instance);
     partial void DeleteConsumo(Consumo instance);
+    partial void InsertDefinito(Definito instance);
+    partial void UpdateDefinito(Definito instance);
+    partial void DeleteDefinito(Definito instance);
     partial void InsertIngrediente(Ingrediente instance);
     partial void UpdateIngrediente(Ingrediente instance);
     partial void DeleteIngrediente(Ingrediente instance);
@@ -60,6 +63,9 @@ namespace database_project.databaseGestor
     partial void InsertPortata(Portata instance);
     partial void UpdatePortata(Portata instance);
     partial void DeletePortata(Portata instance);
+    partial void InsertPresenta(Presenta instance);
+    partial void UpdatePresenta(Presenta instance);
+    partial void DeletePresenta(Presenta instance);
     partial void InsertRicetta(Ricetta instance);
     partial void UpdateRicetta(Ricetta instance);
     partial void DeleteRicetta(Ricetta instance);
@@ -161,6 +167,14 @@ namespace database_project.databaseGestor
 			}
 		}
 		
+		public System.Data.Linq.Table<Definito> Definito
+		{
+			get
+			{
+				return this.GetTable<Definito>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Ingrediente> Ingrediente
 		{
 			get
@@ -190,6 +204,14 @@ namespace database_project.databaseGestor
 			get
 			{
 				return this.GetTable<Portata>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Presenta> Presenta
+		{
+			get
+			{
+				return this.GetTable<Presenta>();
 			}
 		}
 		
@@ -281,7 +303,7 @@ namespace database_project.databaseGestor
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltIdIngrediente", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltIdIngrediente", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int AltIdIngrediente
 		{
 			get
@@ -600,6 +622,8 @@ namespace database_project.databaseGestor
 		
 		private EntitySet<Caratterizzante> _Caratterizzante;
 		
+		private EntitySet<Definito> _Definito;
+		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -615,6 +639,7 @@ namespace database_project.databaseGestor
 		public Caratteristica()
 		{
 			this._Caratterizzante = new EntitySet<Caratterizzante>(new Action<Caratterizzante>(this.attach_Caratterizzante), new Action<Caratterizzante>(this.detach_Caratterizzante));
+			this._Definito = new EntitySet<Definito>(new Action<Definito>(this.attach_Definito), new Action<Definito>(this.detach_Definito));
 			OnCreated();
 		}
 		
@@ -691,6 +716,19 @@ namespace database_project.databaseGestor
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Caratteristica_Definito", Storage="_Definito", ThisKey="idCaratteristica", OtherKey="idCaratteristica")]
+		public EntitySet<Definito> Definito
+		{
+			get
+			{
+				return this._Definito;
+			}
+			set
+			{
+				this._Definito.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -718,6 +756,18 @@ namespace database_project.databaseGestor
 		}
 		
 		private void detach_Caratterizzante(Caratterizzante entity)
+		{
+			this.SendPropertyChanging();
+			entity.Caratteristica = null;
+		}
+		
+		private void attach_Definito(Definito entity)
+		{
+			this.SendPropertyChanging();
+			entity.Caratteristica = this;
+		}
+		
+		private void detach_Definito(Definito entity)
 		{
 			this.SendPropertyChanging();
 			entity.Caratteristica = null;
@@ -1288,6 +1338,204 @@ namespace database_project.databaseGestor
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Definito")]
+	public partial class Definito : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idRicetta;
+		
+		private int _idRicettaStrum;
+		
+		private int _idCaratteristica;
+		
+		private EntityRef<Caratteristica> _Caratteristica;
+		
+		private EntityRef<RicettaStrumento> _RicettaStrumento;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidRicettaChanging(int value);
+    partial void OnidRicettaChanged();
+    partial void OnidRicettaStrumChanging(int value);
+    partial void OnidRicettaStrumChanged();
+    partial void OnidCaratteristicaChanging(int value);
+    partial void OnidCaratteristicaChanged();
+    #endregion
+		
+		public Definito()
+		{
+			this._Caratteristica = default(EntityRef<Caratteristica>);
+			this._RicettaStrumento = default(EntityRef<RicettaStrumento>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRicetta", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idRicetta
+		{
+			get
+			{
+				return this._idRicetta;
+			}
+			set
+			{
+				if ((this._idRicetta != value))
+				{
+					if (this._RicettaStrumento.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidRicettaChanging(value);
+					this.SendPropertyChanging();
+					this._idRicetta = value;
+					this.SendPropertyChanged("idRicetta");
+					this.OnidRicettaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRicettaStrum", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idRicettaStrum
+		{
+			get
+			{
+				return this._idRicettaStrum;
+			}
+			set
+			{
+				if ((this._idRicettaStrum != value))
+				{
+					if (this._RicettaStrumento.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidRicettaStrumChanging(value);
+					this.SendPropertyChanging();
+					this._idRicettaStrum = value;
+					this.SendPropertyChanged("idRicettaStrum");
+					this.OnidRicettaStrumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCaratteristica", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idCaratteristica
+		{
+			get
+			{
+				return this._idCaratteristica;
+			}
+			set
+			{
+				if ((this._idCaratteristica != value))
+				{
+					if (this._Caratteristica.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidCaratteristicaChanging(value);
+					this.SendPropertyChanging();
+					this._idCaratteristica = value;
+					this.SendPropertyChanged("idCaratteristica");
+					this.OnidCaratteristicaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Caratteristica_Definito", Storage="_Caratteristica", ThisKey="idCaratteristica", OtherKey="idCaratteristica", IsForeignKey=true)]
+		public Caratteristica Caratteristica
+		{
+			get
+			{
+				return this._Caratteristica.Entity;
+			}
+			set
+			{
+				Caratteristica previousValue = this._Caratteristica.Entity;
+				if (((previousValue != value) 
+							|| (this._Caratteristica.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Caratteristica.Entity = null;
+						previousValue.Definito.Remove(this);
+					}
+					this._Caratteristica.Entity = value;
+					if ((value != null))
+					{
+						value.Definito.Add(this);
+						this._idCaratteristica = value.idCaratteristica;
+					}
+					else
+					{
+						this._idCaratteristica = default(int);
+					}
+					this.SendPropertyChanged("Caratteristica");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RicettaStrumento_Definito", Storage="_RicettaStrumento", ThisKey="idRicetta,idRicettaStrum", OtherKey="idRicetta,idRicettaStrum", IsForeignKey=true)]
+		public RicettaStrumento RicettaStrumento
+		{
+			get
+			{
+				return this._RicettaStrumento.Entity;
+			}
+			set
+			{
+				RicettaStrumento previousValue = this._RicettaStrumento.Entity;
+				if (((previousValue != value) 
+							|| (this._RicettaStrumento.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._RicettaStrumento.Entity = null;
+						previousValue.Definito.Remove(this);
+					}
+					this._RicettaStrumento.Entity = value;
+					if ((value != null))
+					{
+						value.Definito.Add(this);
+						this._idRicetta = value.idRicetta;
+						this._idRicettaStrum = value.idRicettaStrum;
+					}
+					else
+					{
+						this._idRicetta = default(int);
+						this._idRicettaStrum = default(int);
+					}
+					this.SendPropertyChanged("RicettaStrumento");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ingrediente")]
 	public partial class Ingrediente : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1561,9 +1809,11 @@ namespace database_project.databaseGestor
 		
 		private string _NomeUDM;
 		
-		private int _kcalPerUnità;
+		private float _kcalPerUnità;
 		
 		private EntitySet<Consumo> _Consumo;
+		
+		private EntitySet<Presenta> _Presenta;
 		
 		private EntityRef<Ingrediente> _Ingrediente;
 		
@@ -1577,13 +1827,14 @@ namespace database_project.databaseGestor
     partial void OnidIngredienteChanged();
     partial void OnNomeUDMChanging(string value);
     partial void OnNomeUDMChanged();
-    partial void OnkcalPerUnitàChanging(int value);
+    partial void OnkcalPerUnitàChanging(float value);
     partial void OnkcalPerUnitàChanged();
     #endregion
 		
 		public IngrUDM()
 		{
 			this._Consumo = new EntitySet<Consumo>(new Action<Consumo>(this.attach_Consumo), new Action<Consumo>(this.detach_Consumo));
+			this._Presenta = new EntitySet<Presenta>(new Action<Presenta>(this.attach_Presenta), new Action<Presenta>(this.detach_Presenta));
 			this._Ingrediente = default(EntityRef<Ingrediente>);
 			this._UnitàDiMisura = default(EntityRef<UnitàDiMisura>);
 			OnCreated();
@@ -1637,8 +1888,8 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kcalPerUnità", DbType="Int NOT NULL")]
-		public int kcalPerUnità
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kcalPerUnità", DbType="Real NOT NULL")]
+		public float kcalPerUnità
 		{
 			get
 			{
@@ -1667,6 +1918,19 @@ namespace database_project.databaseGestor
 			set
 			{
 				this._Consumo.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IngrUDM_Presenta", Storage="_Presenta", ThisKey="idIngrediente,NomeUDM", OtherKey="idIngrediente,NomeUDM")]
+		public EntitySet<Presenta> Presenta
+		{
+			get
+			{
+				return this._Presenta;
+			}
+			set
+			{
+				this._Presenta.Assign(value);
 			}
 		}
 		
@@ -1765,6 +2029,18 @@ namespace database_project.databaseGestor
 		}
 		
 		private void detach_Consumo(Consumo entity)
+		{
+			this.SendPropertyChanging();
+			entity.IngrUDM = null;
+		}
+		
+		private void attach_Presenta(Presenta entity)
+		{
+			this.SendPropertyChanging();
+			entity.IngrUDM = this;
+		}
+		
+		private void detach_Presenta(Presenta entity)
 		{
 			this.SendPropertyChanging();
 			entity.IngrUDM = null;
@@ -1996,6 +2272,258 @@ namespace database_project.databaseGestor
 		{
 			this.SendPropertyChanging();
 			entity.Portata1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Presenta")]
+	public partial class Presenta : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idRicetta;
+		
+		private int _idRicettaStrum;
+		
+		private int _idIngrediente;
+		
+		private string _NomeUDM;
+		
+		private int _Quantità;
+		
+		private EntityRef<IngrUDM> _IngrUDM;
+		
+		private EntityRef<RicettaStrumento> _RicettaStrumento;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidRicettaChanging(int value);
+    partial void OnidRicettaChanged();
+    partial void OnidRicettaStrumChanging(int value);
+    partial void OnidRicettaStrumChanged();
+    partial void OnidIngredienteChanging(int value);
+    partial void OnidIngredienteChanged();
+    partial void OnNomeUDMChanging(string value);
+    partial void OnNomeUDMChanged();
+    partial void OnQuantitàChanging(int value);
+    partial void OnQuantitàChanged();
+    #endregion
+		
+		public Presenta()
+		{
+			this._IngrUDM = default(EntityRef<IngrUDM>);
+			this._RicettaStrumento = default(EntityRef<RicettaStrumento>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRicetta", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idRicetta
+		{
+			get
+			{
+				return this._idRicetta;
+			}
+			set
+			{
+				if ((this._idRicetta != value))
+				{
+					if (this._RicettaStrumento.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidRicettaChanging(value);
+					this.SendPropertyChanging();
+					this._idRicetta = value;
+					this.SendPropertyChanged("idRicetta");
+					this.OnidRicettaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRicettaStrum", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idRicettaStrum
+		{
+			get
+			{
+				return this._idRicettaStrum;
+			}
+			set
+			{
+				if ((this._idRicettaStrum != value))
+				{
+					if (this._RicettaStrumento.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidRicettaStrumChanging(value);
+					this.SendPropertyChanging();
+					this._idRicettaStrum = value;
+					this.SendPropertyChanged("idRicettaStrum");
+					this.OnidRicettaStrumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idIngrediente", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idIngrediente
+		{
+			get
+			{
+				return this._idIngrediente;
+			}
+			set
+			{
+				if ((this._idIngrediente != value))
+				{
+					if (this._IngrUDM.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidIngredienteChanging(value);
+					this.SendPropertyChanging();
+					this._idIngrediente = value;
+					this.SendPropertyChanged("idIngrediente");
+					this.OnidIngredienteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeUDM", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string NomeUDM
+		{
+			get
+			{
+				return this._NomeUDM;
+			}
+			set
+			{
+				if ((this._NomeUDM != value))
+				{
+					if (this._IngrUDM.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNomeUDMChanging(value);
+					this.SendPropertyChanging();
+					this._NomeUDM = value;
+					this.SendPropertyChanged("NomeUDM");
+					this.OnNomeUDMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantità", DbType="Int NOT NULL")]
+		public int Quantità
+		{
+			get
+			{
+				return this._Quantità;
+			}
+			set
+			{
+				if ((this._Quantità != value))
+				{
+					this.OnQuantitàChanging(value);
+					this.SendPropertyChanging();
+					this._Quantità = value;
+					this.SendPropertyChanged("Quantità");
+					this.OnQuantitàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IngrUDM_Presenta", Storage="_IngrUDM", ThisKey="idIngrediente,NomeUDM", OtherKey="idIngrediente,NomeUDM", IsForeignKey=true)]
+		public IngrUDM IngrUDM
+		{
+			get
+			{
+				return this._IngrUDM.Entity;
+			}
+			set
+			{
+				IngrUDM previousValue = this._IngrUDM.Entity;
+				if (((previousValue != value) 
+							|| (this._IngrUDM.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._IngrUDM.Entity = null;
+						previousValue.Presenta.Remove(this);
+					}
+					this._IngrUDM.Entity = value;
+					if ((value != null))
+					{
+						value.Presenta.Add(this);
+						this._idIngrediente = value.idIngrediente;
+						this._NomeUDM = value.NomeUDM;
+					}
+					else
+					{
+						this._idIngrediente = default(int);
+						this._NomeUDM = default(string);
+					}
+					this.SendPropertyChanged("IngrUDM");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RicettaStrumento_Presenta", Storage="_RicettaStrumento", ThisKey="idRicetta,idRicettaStrum", OtherKey="idRicetta,idRicettaStrum", IsForeignKey=true)]
+		public RicettaStrumento RicettaStrumento
+		{
+			get
+			{
+				return this._RicettaStrumento.Entity;
+			}
+			set
+			{
+				RicettaStrumento previousValue = this._RicettaStrumento.Entity;
+				if (((previousValue != value) 
+							|| (this._RicettaStrumento.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._RicettaStrumento.Entity = null;
+						previousValue.Presenta.Remove(this);
+					}
+					this._RicettaStrumento.Entity = value;
+					if ((value != null))
+					{
+						value.Presenta.Add(this);
+						this._idRicetta = value.idRicetta;
+						this._idRicettaStrum = value.idRicettaStrum;
+					}
+					else
+					{
+						this._idRicetta = default(int);
+						this._idRicettaStrum = default(int);
+					}
+					this.SendPropertyChanged("RicettaStrumento");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -2362,6 +2890,10 @@ namespace database_project.databaseGestor
 		
 		private int _idRicettaStrum;
 		
+		private EntitySet<Definito> _Definito;
+		
+		private EntitySet<Presenta> _Presenta;
+		
 		private EntitySet<Step> _Step;
 		
 		private EntitySet<Utilizzo> _Utilizzo;
@@ -2382,6 +2914,8 @@ namespace database_project.databaseGestor
 		
 		public RicettaStrumento()
 		{
+			this._Definito = new EntitySet<Definito>(new Action<Definito>(this.attach_Definito), new Action<Definito>(this.detach_Definito));
+			this._Presenta = new EntitySet<Presenta>(new Action<Presenta>(this.attach_Presenta), new Action<Presenta>(this.detach_Presenta));
 			this._Step = new EntitySet<Step>(new Action<Step>(this.attach_Step), new Action<Step>(this.detach_Step));
 			this._Utilizzo = new EntitySet<Utilizzo>(new Action<Utilizzo>(this.attach_Utilizzo), new Action<Utilizzo>(this.detach_Utilizzo));
 			this._Ricetta = default(EntityRef<Ricetta>);
@@ -2432,7 +2966,7 @@ namespace database_project.databaseGestor
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRicettaStrum", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRicettaStrum", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int idRicettaStrum
 		{
 			get
@@ -2449,6 +2983,32 @@ namespace database_project.databaseGestor
 					this.SendPropertyChanged("idRicettaStrum");
 					this.OnidRicettaStrumChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RicettaStrumento_Definito", Storage="_Definito", ThisKey="idRicetta,idRicettaStrum", OtherKey="idRicetta,idRicettaStrum")]
+		public EntitySet<Definito> Definito
+		{
+			get
+			{
+				return this._Definito;
+			}
+			set
+			{
+				this._Definito.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RicettaStrumento_Presenta", Storage="_Presenta", ThisKey="idRicetta,idRicettaStrum", OtherKey="idRicetta,idRicettaStrum")]
+		public EntitySet<Presenta> Presenta
+		{
+			get
+			{
+				return this._Presenta;
+			}
+			set
+			{
+				this._Presenta.Assign(value);
 			}
 		}
 		
@@ -2530,6 +3090,30 @@ namespace database_project.databaseGestor
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Definito(Definito entity)
+		{
+			this.SendPropertyChanging();
+			entity.RicettaStrumento = this;
+		}
+		
+		private void detach_Definito(Definito entity)
+		{
+			this.SendPropertyChanging();
+			entity.RicettaStrumento = null;
+		}
+		
+		private void attach_Presenta(Presenta entity)
+		{
+			this.SendPropertyChanging();
+			entity.RicettaStrumento = this;
+		}
+		
+		private void detach_Presenta(Presenta entity)
+		{
+			this.SendPropertyChanging();
+			entity.RicettaStrumento = null;
 		}
 		
 		private void attach_Step(Step entity)

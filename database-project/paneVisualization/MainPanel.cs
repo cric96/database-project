@@ -31,6 +31,12 @@ namespace database_project.paneVisualization
             main.Controls.Add(welcome);
             main.Controls.Add(clickToContinue);
         }
+
+        public void deleteAllControl()
+        {
+            
+        }
+
         public Panel getPanel()
         {
             return main;

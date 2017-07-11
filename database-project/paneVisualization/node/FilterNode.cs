@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace database_project.paneVisualization.node
 {
-    interface FilterNode
+    public interface FilterNode
     {
         Panel getPanel();
     }

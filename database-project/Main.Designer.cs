@@ -41,7 +41,7 @@ namespace database_project
             this.visualizationPane = new System.Windows.Forms.FlowLayoutPanel();
             this.searchPane = new System.Windows.Forms.FlowLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.search = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.ricettaTip = new System.Windows.Forms.ToolTip(this.components);
             this.ingredientiTip = new System.Windows.Forms.ToolTip(this.components);
@@ -146,7 +146,7 @@ namespace database_project
             // searchPane
             // 
             this.searchPane.Controls.Add(this.button5);
-            this.searchPane.Controls.Add(this.textBox1);
+            this.searchPane.Controls.Add(this.search);
             this.searchPane.Controls.Add(this.button4);
             this.searchPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchPane.Location = new System.Drawing.Point(3, 3);
@@ -165,14 +165,15 @@ namespace database_project
             this.button5.TabIndex = 0;
             this.ingredientiTip.SetToolTip(this.button5, "ricerca");
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // textBox1
+            // search
             // 
-            this.textBox1.Location = new System.Drawing.Point(30, 3);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(449, 20);
-            this.textBox1.TabIndex = 1;
+            this.search.Location = new System.Drawing.Point(30, 3);
+            this.search.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(449, 20);
+            this.search.TabIndex = 1;
             // 
             // button4
             // 
@@ -213,7 +214,7 @@ namespace database_project
         private System.Windows.Forms.TableLayoutPanel rightPane;
         private System.Windows.Forms.FlowLayoutPanel visualizationPane;
         private System.Windows.Forms.FlowLayoutPanel searchPane;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.ToolTip ricettaTip;
         private System.Windows.Forms.ToolTip ingredientiTip;
         private System.Windows.Forms.ToolTip menuTip;

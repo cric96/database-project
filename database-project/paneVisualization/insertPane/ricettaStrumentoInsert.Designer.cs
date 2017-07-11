@@ -30,6 +30,18 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.RSStrumentiSelector = new System.Windows.Forms.CheckedListBox();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.kcalTot = new System.Windows.Forms.Label();
+            this.addRS = new System.Windows.Forms.Button();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Ingredienti = new System.Windows.Forms.Label();
+            this.ingredientVisualizzator = new System.Windows.Forms.ListView();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.stepListing = new System.Windows.Forms.ListView();
             this.strumentSelector = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -38,33 +50,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.ingredientiSelector = new System.Windows.Forms.CheckedListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.strumentiStep = new System.Windows.Forms.CheckedListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.descrizione = new System.Windows.Forms.RichTextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.immageOpen = new System.Windows.Forms.Button();
             this.Immagine = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.RSStrumentiSelector = new System.Windows.Forms.CheckedListBox();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.kcalTot = new System.Windows.Forms.Label();
-            this.addRS = new System.Windows.Forms.Button();
+            this.immagePath = new System.Windows.Forms.Label();
             this.AggiungiStep = new System.Windows.Forms.Button();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Ingredienti = new System.Windows.Forms.Label();
-            this.ingredientVisualizzator = new System.Windows.Forms.ListView();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.strumentSelector.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
+            this.strumentSelector.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -110,6 +111,111 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(147, 552);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 26);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Inserisci gli strumenti principali di questa ricetta";
+            // 
+            // RSStrumentiSelector
+            // 
+            this.RSStrumentiSelector.FormattingEnabled = true;
+            this.RSStrumentiSelector.Location = new System.Drawing.Point(3, 43);
+            this.RSStrumentiSelector.Name = "RSStrumentiSelector";
+            this.RSStrumentiSelector.Size = new System.Drawing.Size(141, 79);
+            this.RSStrumentiSelector.TabIndex = 1;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.label7);
+            this.flowLayoutPanel3.Controls.Add(this.kcalTot);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 475);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(141, 17);
+            this.flowLayoutPanel3.TabIndex = 4;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Kcal:";
+            // 
+            // kcalTot
+            // 
+            this.kcalTot.AutoSize = true;
+            this.kcalTot.Location = new System.Drawing.Point(40, 0);
+            this.kcalTot.Name = "kcalTot";
+            this.kcalTot.Size = new System.Drawing.Size(0, 13);
+            this.kcalTot.TabIndex = 1;
+            // 
+            // addRS
+            // 
+            this.addRS.Location = new System.Drawing.Point(3, 498);
+            this.addRS.Name = "addRS";
+            this.addRS.Size = new System.Drawing.Size(141, 26);
+            this.addRS.TabIndex = 5;
+            this.addRS.Text = "AggiungiSteps";
+            this.addRS.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.Ingredienti);
+            this.flowLayoutPanel4.Controls.Add(this.ingredientVisualizzator);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 137);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(141, 113);
+            this.flowLayoutPanel4.TabIndex = 6;
+            // 
+            // Ingredienti
+            // 
+            this.Ingredienti.AutoSize = true;
+            this.Ingredienti.Location = new System.Drawing.Point(3, 0);
+            this.Ingredienti.Name = "Ingredienti";
+            this.Ingredienti.Size = new System.Drawing.Size(56, 13);
+            this.Ingredienti.TabIndex = 0;
+            this.Ingredienti.Text = "Ingredienti";
+            // 
+            // ingredientVisualizzator
+            // 
+            this.ingredientVisualizzator.Location = new System.Drawing.Point(3, 16);
+            this.ingredientVisualizzator.Name = "ingredientVisualizzator";
+            this.ingredientVisualizzator.Size = new System.Drawing.Size(138, 97);
+            this.ingredientVisualizzator.TabIndex = 1;
+            this.ingredientVisualizzator.UseCompatibleStateImageBehavior = false;
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.label8);
+            this.flowLayoutPanel5.Controls.Add(this.stepListing);
+            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 256);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(141, 213);
+            this.flowLayoutPanel5.TabIndex = 7;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Steps";
+            // 
+            // stepListing
+            // 
+            this.stepListing.Location = new System.Drawing.Point(3, 16);
+            this.stepListing.Name = "stepListing";
+            this.stepListing.Size = new System.Drawing.Size(138, 197);
+            this.stepListing.TabIndex = 1;
+            this.stepListing.UseCompatibleStateImageBehavior = false;
+            // 
             // strumentSelector
             // 
             this.strumentSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -122,7 +228,7 @@
             this.strumentSelector.Controls.Add(this.label3, 0, 2);
             this.strumentSelector.Controls.Add(this.ingredientiSelector, 0, 3);
             this.strumentSelector.Controls.Add(this.label4, 0, 4);
-            this.strumentSelector.Controls.Add(this.checkedListBox1, 0, 5);
+            this.strumentSelector.Controls.Add(this.strumentiStep, 0, 5);
             this.strumentSelector.Controls.Add(this.label5, 0, 6);
             this.strumentSelector.Controls.Add(this.descrizione, 0, 7);
             this.strumentSelector.Controls.Add(this.flowLayoutPanel2, 0, 8);
@@ -206,13 +312,13 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Inserisci gli strumenti utilizzati";
             // 
-            // checkedListBox1
+            // strumentiStep
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(3, 177);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(414, 49);
-            this.checkedListBox1.TabIndex = 5;
+            this.strumentiStep.FormattingEnabled = true;
+            this.strumentiStep.Location = new System.Drawing.Point(3, 177);
+            this.strumentiStep.Name = "strumentiStep";
+            this.strumentiStep.Size = new System.Drawing.Size(414, 49);
+            this.strumentiStep.TabIndex = 5;
             // 
             // label5
             // 
@@ -233,22 +339,23 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.button1);
+            this.flowLayoutPanel2.Controls.Add(this.immageOpen);
             this.flowLayoutPanel2.Controls.Add(this.Immagine);
+            this.flowLayoutPanel2.Controls.Add(this.immagePath);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 443);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(414, 28);
             this.flowLayoutPanel2.TabIndex = 8;
             // 
-            // button1
+            // immageOpen
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Scegli un\'immagine";
-            this.button1.UseVisualStyleBackColor = true;
+            this.immageOpen.Location = new System.Drawing.Point(3, 3);
+            this.immageOpen.Name = "immageOpen";
+            this.immageOpen.Size = new System.Drawing.Size(145, 23);
+            this.immageOpen.TabIndex = 0;
+            this.immageOpen.Text = "Scegli un\'immagine";
+            this.immageOpen.UseVisualStyleBackColor = true;
             // 
             // Immagine
             // 
@@ -259,57 +366,13 @@
             this.Immagine.TabIndex = 1;
             this.Immagine.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // immagePath
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 26);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Inserisci gli strumenti principali di questa ricetta";
-            // 
-            // RSStrumentiSelector
-            // 
-            this.RSStrumentiSelector.FormattingEnabled = true;
-            this.RSStrumentiSelector.Location = new System.Drawing.Point(3, 43);
-            this.RSStrumentiSelector.Name = "RSStrumentiSelector";
-            this.RSStrumentiSelector.Size = new System.Drawing.Size(141, 79);
-            this.RSStrumentiSelector.TabIndex = 1;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.label7);
-            this.flowLayoutPanel3.Controls.Add(this.kcalTot);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 475);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(141, 17);
-            this.flowLayoutPanel3.TabIndex = 4;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Kcal:";
-            // 
-            // kcalTot
-            // 
-            this.kcalTot.AutoSize = true;
-            this.kcalTot.Location = new System.Drawing.Point(40, 0);
-            this.kcalTot.Name = "kcalTot";
-            this.kcalTot.Size = new System.Drawing.Size(0, 13);
-            this.kcalTot.TabIndex = 1;
-            // 
-            // addRS
-            // 
-            this.addRS.Location = new System.Drawing.Point(3, 498);
-            this.addRS.Name = "addRS";
-            this.addRS.Size = new System.Drawing.Size(141, 26);
-            this.addRS.TabIndex = 5;
-            this.addRS.Text = "AggiungiSteps";
-            this.addRS.UseVisualStyleBackColor = true;
+            this.immagePath.AutoSize = true;
+            this.immagePath.Location = new System.Drawing.Point(160, 0);
+            this.immagePath.Name = "immagePath";
+            this.immagePath.Size = new System.Drawing.Size(0, 13);
+            this.immagePath.TabIndex = 2;
             // 
             // AggiungiStep
             // 
@@ -320,59 +383,6 @@
             this.AggiungiStep.Text = "Aggiungi Step";
             this.AggiungiStep.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.Ingredienti);
-            this.flowLayoutPanel4.Controls.Add(this.ingredientVisualizzator);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 137);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(141, 113);
-            this.flowLayoutPanel4.TabIndex = 6;
-            // 
-            // Ingredienti
-            // 
-            this.Ingredienti.AutoSize = true;
-            this.Ingredienti.Location = new System.Drawing.Point(3, 0);
-            this.Ingredienti.Name = "Ingredienti";
-            this.Ingredienti.Size = new System.Drawing.Size(56, 13);
-            this.Ingredienti.TabIndex = 0;
-            this.Ingredienti.Text = "Ingredienti";
-            // 
-            // ingredientVisualizzator
-            // 
-            this.ingredientVisualizzator.Location = new System.Drawing.Point(3, 16);
-            this.ingredientVisualizzator.Name = "ingredientVisualizzator";
-            this.ingredientVisualizzator.Size = new System.Drawing.Size(138, 97);
-            this.ingredientVisualizzator.TabIndex = 1;
-            this.ingredientVisualizzator.UseCompatibleStateImageBehavior = false;
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Controls.Add(this.label8);
-            this.flowLayoutPanel5.Controls.Add(this.listView1);
-            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 256);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(141, 213);
-            this.flowLayoutPanel5.TabIndex = 7;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(34, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Steps";
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(3, 16);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(138, 197);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // ricettaStrumentoInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,24 +390,25 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(584, 561);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximumSize = new System.Drawing.Size(600, 600);
             this.MinimumSize = new System.Drawing.Size(600, 600);
             this.Name = "ricettaStrumentoInsert";
             this.Text = "ricettaStrumento inserimento";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.strumentSelector.ResumeLayout(false);
-            this.strumentSelector.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
+            this.strumentSelector.ResumeLayout(false);
+            this.strumentSelector.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -414,11 +425,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckedListBox ingredientiSelector;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox strumentiStep;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox descrizione;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button immageOpen;
         private System.Windows.Forms.Label Immagine;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckedListBox RSStrumentiSelector;
@@ -432,6 +443,7 @@
         private System.Windows.Forms.ListView ingredientVisualizzator;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView stepListing;
+        private System.Windows.Forms.Label immagePath;
     }
 }

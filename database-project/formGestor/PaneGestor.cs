@@ -13,6 +13,7 @@ namespace database_project.formGestor
         Pane getCurrentPanel();
         /* set a panel into current main panel */
         void setPanel(Pane aPanel);
-
+        /* clear the current pane */ 
+        void clearPane();
     }
 }

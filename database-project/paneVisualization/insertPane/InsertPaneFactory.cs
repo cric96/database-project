@@ -8,7 +8,7 @@ namespace database_project.paneVisualization.insertPane
 {
     class InsertPaneFactory
     {
-        public static Pane getInsertIngredient()
+        public static Pane getInsertIngrediente()
         {
             return new IngredientInsert();
         }
@@ -16,6 +16,11 @@ namespace database_project.paneVisualization.insertPane
         public static Pane getInsertRicetta()
         {
             return new RicettaInsert();
+        }
+
+        public static Pane getInsertMenu()
+        {
+            return new MenuInsert();
         }
     }
 }

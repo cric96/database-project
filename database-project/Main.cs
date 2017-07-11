@@ -27,19 +27,31 @@ namespace database_project
         private void button3_Click(object sender, EventArgs e)
         {
             gestor.enableShowingSearch();
+            gestor.clearPane();
             gestor.setPanel(PaneFactory.getRicettaPane());
         }
         //Ingredienti
         private void button2_Click(object sender, EventArgs e)
         {
             gestor.disableShowingSearch();
+            gestor.clearPane();
             gestor.setPanel(PaneFactory.getIngredientPane());
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             gestor.enableShowingSearch();
-            gestor.setPanel(PaneFactory.getBasic());
+            gestor.clearPane();
+            gestor.setPanel(PaneFactory.getMenuPane());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if(MainPaneGestor.getInstance().getCurrentPanel() is PaneQueryable)
+            {
+                PaneQueryable pane = (PaneQueryable)MainPaneGestor.getInstance().getCurrentPanel();
+                pane.search(this.search.Text);
+            }
         }
     }
 }

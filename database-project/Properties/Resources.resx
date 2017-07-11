@@ -121,8 +121,56 @@
   <data name="addizione" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\addizione.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="avanti" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avanti.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bilancia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bilancia.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bimby" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bimby.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Colino" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Colino.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Crepiera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Crepiera.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cucchiaio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cucchiaio.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cucchiaioDiLegno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cucchiaioDiLegno.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FornettoPizza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FornettoPizza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Forno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Forno.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FornoAMicroonde" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FornoAMicroonde.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Frullatore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Frullatore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FrullatoreAImmersione" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FrullatoreAImmersione.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FrustaDaCucina" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FrustaDaCucina.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FrustaElettrica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FrustaElettrica.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="iconmain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconmain.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Impastatrice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Impastatrice.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="indietro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\indietro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ingradimento" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ingradimento.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,7 +181,55 @@
   <data name="menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Mestolo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mestolo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Padella" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Padella.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PadellaCaldarroste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PadellaCaldarroste.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pelapatate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pelapatate.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pentola" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pentola.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PentolaAPressione" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PentolaAPressione.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PinzaDaCucina" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PinzaDaCucina.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ricetta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ricetta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Schiaccianoci" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Schiaccianoci.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Schiacciapatate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Schiacciapatate.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Schiumarola" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Schiumarola.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Scodella" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Scodella.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Spatola" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spatola.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TegliaRettangolare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TegliaRettangolare.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TegliaTonda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TegliaTonda.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tortiera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tortiera.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tritatutto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tritatutto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

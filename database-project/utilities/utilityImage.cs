@@ -10,7 +10,7 @@ namespace database_project
     class UtilityImage
     {
         private UtilityImage() { }
-        private static  List<String> imageSupported = new List<String>(new string[] {"jpg","png"});
+        private static  List<String> imageSupported = new List<String>(new string[] {"jpg","png","PNG"});
         public static string findFileCheckImage()
         {
             OpenFileDialog open = new OpenFileDialog();

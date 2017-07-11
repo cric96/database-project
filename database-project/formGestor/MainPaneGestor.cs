@@ -56,11 +56,23 @@ namespace database_project.formGestor
             {
                 this.mainTable.Controls.Remove(this.current.getPanel());
             }
+            this.clearPane();
+            
             this.current = aPane;
-            this.mainTable.Controls.Add(aPane.getPanel(),0,1);
+            this.mainTable.Controls.Add(aPane.getPanel(), 0, 1);
             aPane.getPanel().Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Top;
         }
 
+        public void clearPane()
+        {
+            Pane last = this.current;
+            if (last != null)
+            {
+                last.deleteAllControl();
+                foreach (Control c in last.getPanel().Controls) c.Dispose();
+                last.getPanel().Controls.Clear();
+            }
+        }
         private Panel getSearchPanel()
         {
             return (Panel)this.mainTable.GetControlFromPosition(0, 0);

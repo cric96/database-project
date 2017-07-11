@@ -10,6 +10,7 @@ using database_project.databaseGestor;
 using System.IO;
 using database_project.utilities;
 using Microsoft.VisualBasic;
+using database_project.formGestor;
 
 namespace database_project.paneVisualization.insertPane
 {
@@ -17,19 +18,22 @@ namespace database_project.paneVisualization.insertPane
     {
         private TableLayoutPanel main;
         private List<Tuple<int, String>> caratteristiche;
-        private Dictionary<String, int> ingrUdm;
+        private Dictionary<String, double> ingrUdm;
         private ComboBox categorie;
         private CheckedListBox checkCaratteristiche;
         private CheckedListBox unitàDiMisura;
         private TextBox box;
         private RicettarioGestorDataContext db = RicettarioDB.getInstance();
-
+        private List<Ingrediente> ingredienti;
+        private CheckedListBox alternativeBox;
         public IngredientInsert()
         {
             caratteristiche = createCaratteristiche();
-            ingrUdm = new Dictionary<String,int>();
+            ingrUdm = new Dictionary<String,double>();
             main = new TableLayoutPanel();
             Size basicSize = new Size(400, 20);
+            ingredienti = (from c in db.Ingrediente select c).ToList();
+
             //LABEL 
             Label textCategorie = labelFactory.createAdvanceLabel("Scegli la categoria..", labelFactory.getGeneralFont(),
                                                                         basicSize, Color.Black, ContentAlignment.TopLeft);
@@ -42,7 +46,9 @@ namespace database_project.paneVisualization.insertPane
             Label textIngrNome = labelFactory.createAdvanceLabel("Scegli il nome dell'ingrediente", labelFactory.getGeneralFont(),
                                                                       basicSize, Color.Black, ContentAlignment.TopLeft);
 
-           
+            Label textAlternative = labelFactory.createAdvanceLabel("Seleziona alternative..", labelFactory.getGeneralFont(),
+                                                                      basicSize, Color.Black, ContentAlignment.TopLeft);
+
             //COMBO
             categorie = createCombo();
             //CHECKLIST
@@ -51,10 +57,13 @@ namespace database_project.paneVisualization.insertPane
             unitàDiMisura = createChecked(from c in db.UnitàDiMisura
                                                          select new String (c.Nome.ToCharArray() ));
             unitàDiMisura.ItemCheck += new ItemCheckEventHandler(checkValues);
-            
+
+            this.alternativeBox = new CheckedListBox();
+            this.alternativeBox.HorizontalScrollbar = true;
+            this.ingredienti.ForEach(x => alternativeBox.Items.Add(x.Nome));
             //TEXT BOX
             box = new TextBox();
-
+            box.MaxLength = (int)textConst.NOME_INGREDIENTE;
             //aggiungi
 
             Button insert = new Button();
@@ -69,8 +78,10 @@ namespace database_project.paneVisualization.insertPane
             main.Controls.Add(unitàDiMisura);
             main.Controls.Add(textIngrNome);
             main.Controls.Add(box);
-           
+            main.Controls.Add(textAlternative);
+            main.Controls.Add(alternativeBox);
             main.Controls.Add(insert);
+            checkCaratteristiche.HorizontalScrollbar = true;
 
         }
 
@@ -96,16 +107,15 @@ namespace database_project.paneVisualization.insertPane
                 input.Text = "Inserisci le calorie";
                 input.Icon = Properties.Resources.iconmain;
                 input.Controls.Add(pane);
-                int kcal;
+                double kcal = 0;
                 do
                 {
                  
                     input.ShowDialog();
                     if (box.Text.Length == 0) AllertGestor.defaultError("Devi almeno una unità di misura");
-                    else if (!Int32.TryParse(box.Text, out kcal)) AllertGestor.defaultError("Deve essere numerica!");
+                    else if (!Double.TryParse(box.Text, out kcal)) AllertGestor.defaultError("Deve essere numerica!");
                     else this.ingrUdm.Add(this.unitàDiMisura.Items[e.Index].ToString(),kcal);
-                    
-                } while (box.Text.Length == 0 || !Int32.TryParse(box.Text, out kcal));
+                } while (box.Text.Length == 0 || !Double.TryParse(box.Text, out kcal));
             } else
             {
                 this.ingrUdm.Remove(this.unitàDiMisura.Items[e.Index].ToString());
@@ -154,47 +164,88 @@ namespace database_project.paneVisualization.insertPane
         private void queryInsert(object sender, EventArgs e)
         {
             if (this.box.Text.Length == 0) AllertGestor.defaultError("Devi scegliere un nome");
-            if (this.categorie.SelectedItem == null) AllertGestor.defaultError("Devi scegliere una categoria");
-            if (this.checkCaratteristiche.SelectedItems.Count == 0) AllertGestor.defaultError("Devi almeno una caratteristica");
-            if (this.unitàDiMisura.SelectedItems.Count == 0) AllertGestor.defaultError("Devi almeno una unità di misura");
-            Ingrediente ing = new Ingrediente();
-            int max = (from c in db.Ingrediente
-                       select c.idIngrediente).Max<int>() + 1;
-            ing.Nome = box.Text;
-            ing.NomeCat = categorie.SelectedItem.ToString();
-            db.Ingrediente.InsertOnSubmit(ing);
-            foreach (int i in this.checkCaratteristiche.CheckedIndices)
+            else if (this.categorie.SelectedItem == null) AllertGestor.defaultError("Devi scegliere una categoria");
+            else if (this.unitàDiMisura.SelectedItems.Count == 0) AllertGestor.defaultError("Devi almeno una unità di misura");
+            else
             {
-                Tuple<int, String> value = this.caratteristiche[i];
-                Console.WriteLine(i);
-                Caratterizzante cat = new Caratterizzante();
-                cat.idCaratteristica = value.Item1;
-                cat.idIngrediente = max;
-                db.Caratterizzante.InsertOnSubmit(cat);
-            }
+                Ingrediente ing = new Ingrediente();
+                ing.Nome = box.Text;
+                ing.NomeCat = categorie.SelectedItem.ToString();
+                db.Ingrediente.InsertOnSubmit(ing);
+                db.SubmitChanges();
+                int max = ing.idIngrediente;
+                foreach (int i in this.checkCaratteristiche.CheckedIndices)
+                {
+                    Tuple<int, String> value = this.caratteristiche[i];
+                    Caratterizzante cat = new Caratterizzante();
+                    cat.idCaratteristica = value.Item1;
+                    cat.idIngrediente = max;
+                    db.Caratterizzante.InsertOnSubmit(cat);
+                }
 
-            this.ingrUdm.ToList().ForEach(x =>
-            {
-                IngrUDM ingUdm = new IngrUDM();
-                ingUdm.kcalPerUnità = x.Value;
-                ingUdm.NomeUDM = x.Key;
-                ingUdm.idIngrediente = max;
-                db.IngrUDM.InsertOnSubmit(ingUdm);
-            });
-            if (this.checkOk() == false) return;
+                this.ingrUdm.ToList().ForEach(x =>
+                {
+                    IngrUDM ingUdm = new IngrUDM();
+                    ingUdm.kcalPerUnità = (float)x.Value;
+                    ingUdm.NomeUDM = x.Key;
+                    ingUdm.idIngrediente = max;
+                    db.IngrUDM.InsertOnSubmit(ingUdm);
+                });
+                foreach (int i in this.alternativeBox.CheckedIndices)
+                {
+                    Alternativo alt = new Alternativo();
+                    alt.idIngrediente = max;
+                    alt.AltIdIngrediente = this.ingredienti[i].idIngrediente;
+                    Alternativo alt2 = new Alternativo();
+                    alt2.AltIdIngrediente = max;
+                    alt2.idIngrediente = this.ingredienti[i].idIngrediente;
+                    db.Alternativo.InsertOnSubmit(alt);
+                    db.Alternativo.InsertOnSubmit(alt2);
+                }
+                //se qualcosa è andato storto elimino l'ingrediente
+                if (this.checkOk() == false)
+                {
+                    db.Ingrediente.DeleteOnSubmit(ing);
+                    try
+                    {
+                        db.SubmitChanges();
+                    }
+                    catch (Exception exc)
+                    {
+                        RicettarioDB.refresh();
+                        this.db = RicettarioDB.getInstance();
+                        AllertGestor.defaultError("Qualcosa non va");
+                        MainPaneGestor.getInstance().setPanel(PaneFactory.getIngredientPane());
+                    }
+                }
+                else
+                {
+                    RicettarioDB.refresh();
+                    AllertGestor.defaultShowOk("Ingrediente inserito!");
+                    MainPaneGestor.getInstance().setPanel(PaneFactory.getIngredientPane());
+                }
+            }
         }
         private bool checkOk()
         {
             try
             {
+                
                 db.SubmitChanges();
                 return true;
             }
             catch (Exception exc)
             {
-                AllertGestor.defaultError("Errore nel database contattare il tecnico..");
+                
+                AllertGestor.defaultError("Errore nel database contattare il tecnico..\n Eccezione = " + exc.ToString());
                 return false;
             }
+        }
+
+        public void deleteAllControl()
+        {
+            foreach (Control c in this.main.Controls) c.Dispose();
+            this.main.Controls.Clear();
         }
     }
 }

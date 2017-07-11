@@ -10,6 +10,7 @@ namespace database_project.paneVisualization
     public interface Pane
     {
         Panel getPanel();
-        
+
+        void deleteAllControl();
     }
 }

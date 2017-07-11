@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace database_project.paneVisualization.node
 {
-    interface ImageNode
+    public interface ImageNode
     {
         Button getImage();
     }

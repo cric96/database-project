@@ -14,5 +14,11 @@ namespace database_project.utilities
             MessageBox.Show(error, "qualcosa è andato storto", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
         }
+
+        public static void defaultShowOk(String text)
+        {
+            MessageBox.Show(text, "tutto ok!", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+        }
     }
 }

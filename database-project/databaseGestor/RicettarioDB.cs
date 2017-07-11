@@ -14,5 +14,10 @@ namespace database_project.databaseGestor
         {
             return SINGLETON;
         }
+
+        public static void refresh()
+        {
+            SINGLETON = new RicettarioGestorDataContext();
+        }
     }
 }
