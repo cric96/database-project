@@ -8,6 +8,7 @@ namespace database_project
 {
     static class Program
     {
+
         /// <summary>
         /// Punto di ingresso principale dell'applicazione.
         /// </summary>

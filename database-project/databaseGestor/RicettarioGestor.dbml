@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Ricettario" Class="RicettarioGestorDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=Ricettario;Integrated Security=True" SettingsObjectName="database_project.Properties.Settings" SettingsPropertyName="RicettarioConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Alternativo" Member="Alternativo">
+    <Type Name="Alternativo">
+      <Column Name="AltIdIngrediente" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idIngrediente" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Ingrediente_Alternativo" Member="Ingrediente" ThisKey="idIngrediente" OtherKey="idIngrediente" Type="Ingrediente" IsForeignKey="true" />
+      <Association Name="Ingrediente_Alternativo1" Member="Ingrediente1" ThisKey="AltIdIngrediente" OtherKey="idIngrediente" Type="Ingrediente" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Assemblaggio" Member="Assemblaggio">
+    <Type Name="Assemblaggio">
+      <Column Name="idRicetta" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idMenù" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Menù_Assemblaggio" Member="Menù" ThisKey="idMenù" OtherKey="idMenù" Type="Menù" IsForeignKey="true" />
+      <Association Name="Ricetta_Assemblaggio" Member="Ricetta" ThisKey="idRicetta" OtherKey="idRicetta" Type="Ricetta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Caratteristica" Member="Caratteristica">
+    <Type Name="Caratteristica">
+      <Column Name="idCaratteristica" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Descrizione" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Caratteristica_Caratterizzante" Member="Caratterizzante" ThisKey="idCaratteristica" OtherKey="idCaratteristica" Type="Caratterizzante" />
+      <Association Name="Caratteristica_Definito" Member="Definito" ThisKey="idCaratteristica" OtherKey="idCaratteristica" Type="Definito" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Caratterizzante" Member="Caratterizzante">
+    <Type Name="Caratterizzante">
+      <Column Name="idIngrediente" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idCaratteristica" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Caratteristica_Caratterizzante" Member="Caratteristica" ThisKey="idCaratteristica" OtherKey="idCaratteristica" Type="Caratteristica" IsForeignKey="true" />
+      <Association Name="Ingrediente_Caratterizzante" Member="Ingrediente" ThisKey="idIngrediente" OtherKey="idIngrediente" Type="Ingrediente" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categoria" Member="Categoria">
+    <Type Name="Categoria">
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Descrizione" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Categoria_Ingrediente" Member="Ingrediente" ThisKey="Nome" OtherKey="NomeCat" Type="Ingrediente" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Consumo" Member="Consumo">
+    <Type Name="Consumo">
+      <Column Name="idIngrediente" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NomeUDM" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idRicetta" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idRicettaStrum" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NomeStep" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Quantità" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="IngrUDM_Consumo" Member="IngrUDM" ThisKey="idIngrediente,NomeUDM" OtherKey="idIngrediente,NomeUDM" Type="IngrUDM" IsForeignKey="true" />
+      <Association Name="Step_Consumo" Member="Step" ThisKey="idRicetta,idRicettaStrum,NomeStep" OtherKey="idRicetta,idRicettaStrum,Nome" Type="Step" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Definito" Member="Definito">
+    <Type Name="Definito">
+      <Column Name="idRicetta" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idRicettaStrum" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idCaratteristica" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Caratteristica_Definito" Member="Caratteristica" ThisKey="idCaratteristica" OtherKey="idCaratteristica" Type="Caratteristica" IsForeignKey="true" />
+      <Association Name="RicettaStrumento_Definito" Member="RicettaStrumento" ThisKey="idRicetta,idRicettaStrum" OtherKey="idRicetta,idRicettaStrum" Type="RicettaStrumento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ingrediente" Member="Ingrediente">
+    <Type Name="Ingrediente">
+      <Column Name="idIngrediente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NomeCat" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Ingrediente_Alternativo" Member="Alternativo" ThisKey="idIngrediente" OtherKey="idIngrediente" Type="Alternativo" />
+      <Association Name="Ingrediente_Alternativo1" Member="Alternativo1" ThisKey="idIngrediente" OtherKey="AltIdIngrediente" Type="Alternativo" />
+      <Association Name="Ingrediente_Caratterizzante" Member="Caratterizzante" ThisKey="idIngrediente" OtherKey="idIngrediente" Type="Caratterizzante" />
+      <Association Name="Ingrediente_IngrUDM" Member="IngrUDM" ThisKey="idIngrediente" OtherKey="idIngrediente" Type="IngrUDM" />
+      <Association Name="Categoria_Ingrediente" Member="Categoria" ThisKey="NomeCat" OtherKey="Nome" Type="Categoria" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IngrUDM" Member="IngrUDM">
+    <Type Name="IngrUDM">
+      <Column Name="idIngrediente" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NomeUDM" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="kcalPerUnità" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Association Name="IngrUDM_Consumo" Member="Consumo" ThisKey="idIngrediente,NomeUDM" OtherKey="idIngrediente,NomeUDM" Type="Consumo" />
+      <Association Name="IngrUDM_Presenta" Member="Presenta" ThisKey="idIngrediente,NomeUDM" OtherKey="idIngrediente,NomeUDM" Type="Presenta" />
+      <Association Name="Ingrediente_IngrUDM" Member="Ingrediente" ThisKey="idIngrediente" OtherKey="idIngrediente" Type="Ingrediente" IsForeignKey="true" />
+      <Association Name="UnitàDiMisura_IngrUDM" Member="UnitàDiMisura" ThisKey="NomeUDM" OtherKey="Nome" Type="UnitàDiMisura" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Menù" Member="Menù">
+    <Type Name="Menù">
+      <Column Name="Nome" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="idMenù" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Menù_Assemblaggio" Member="Assemblaggio" ThisKey="idMenù" OtherKey="idMenù" Type="Assemblaggio" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Portata" Member="Portata">
+    <Type Name="Portata">
+      <Column Name="Nome" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Portata_Ricetta" Member="Ricetta" ThisKey="Nome" OtherKey="portata" Type="Ricetta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Presenta" Member="Presenta">
+    <Type Name="Presenta">
+      <Column Name="idRicetta" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idRicettaStrum" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idIngrediente" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NomeUDM" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Quantità" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="IngrUDM_Presenta" Member="IngrUDM" ThisKey="idIngrediente,NomeUDM" OtherKey="idIngrediente,NomeUDM" Type="IngrUDM" IsForeignKey="true" />
+      <Association Name="RicettaStrumento_Presenta" Member="RicettaStrumento" ThisKey="idRicetta,idRicettaStrum" OtherKey="idRicetta,idRicettaStrum" Type="RicettaStrumento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ricetta" Member="Ricetta">
+    <Type Name="Ricetta">
+      <Column Name="idRicetta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Descrizione" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Immagine" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="TCottura" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TPreparazione" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Difficoltà" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Persone" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="portata" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Ricetta_Assemblaggio" Member="Assemblaggio" ThisKey="idRicetta" OtherKey="idRicetta" Type="Assemblaggio" />
+      <Association Name="Ricetta_RicettaStrumento" Member="RicettaStrumento" ThisKey="idRicetta" OtherKey="idRicetta" Type="RicettaStrumento" />
+      <Association Name="Portata_Ricetta" Member="Portata1" ThisKey="portata" OtherKey="Nome" Type="Portata" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RicettaStrumento" Member="RicettaStrumento">
+    <Type Name="RicettaStrumento">
+      <Column Name="idRicetta" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Kcal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idRicettaStrum" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="RicettaStrumento_Definito" Member="Definito" ThisKey="idRicetta,idRicettaStrum" OtherKey="idRicetta,idRicettaStrum" Type="Definito" />
+      <Association Name="RicettaStrumento_Presenta" Member="Presenta" ThisKey="idRicetta,idRicettaStrum" OtherKey="idRicetta,idRicettaStrum" Type="Presenta" />
+      <Association Name="RicettaStrumento_Step" Member="Step" ThisKey="idRicetta,idRicettaStrum" OtherKey="idRicetta,idRicettaStrum" Type="Step" />
+      <Association Name="RicettaStrumento_Utilizzo" Member="Utilizzo" ThisKey="idRicetta,idRicettaStrum" OtherKey="idRicetta,idRicettaStrum" Type="Utilizzo" />
+      <Association Name="Ricetta_RicettaStrumento" Member="Ricetta" ThisKey="idRicetta" OtherKey="idRicetta" Type="Ricetta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Step" Member="Step">
+    <Type Name="Step">
+      <Column Name="idRicetta" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idRicettaStrum" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Descrizione" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Immagine" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="NumOrdine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Step_Consumo" Member="Consumo" ThisKey="idRicetta,idRicettaStrum,Nome" OtherKey="idRicetta,idRicettaStrum,NomeStep" Type="Consumo" />
+      <Association Name="Step_Uso" Member="Uso" ThisKey="idRicetta,idRicettaStrum,Nome" OtherKey="idRicetta,idRicettaStrum,NomeStep" Type="Uso" />
+      <Association Name="RicettaStrumento_Step" Member="RicettaStrumento" ThisKey="idRicetta,idRicettaStrum" OtherKey="idRicetta,idRicettaStrum" Type="RicettaStrumento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Strumento" Member="Strumento">
+    <Type Name="Strumento">
+      <Column Name="Immagine" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Descrizione" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="TipoElettrodom" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Potenza" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Prezzo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idStrumento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Strumento_Uso" Member="Uso" ThisKey="idStrumento" OtherKey="idStrumento" Type="Uso" />
+      <Association Name="Strumento_Utilizzo" Member="Utilizzo" ThisKey="idStrumento" OtherKey="idStrumento" Type="Utilizzo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UnitàDiMisura" Member="UnitàDiMisura">
+    <Type Name="UnitàDiMisura">
+      <Column Name="Nome" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="UnitàDiMisura_IngrUDM" Member="IngrUDM" ThisKey="Nome" OtherKey="NomeUDM" Type="IngrUDM" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Uso" Member="Uso">
+    <Type Name="Uso">
+      <Column Name="idStrumento" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idRicetta" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idRicettaStrum" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NomeStep" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Step_Uso" Member="Step" ThisKey="idRicetta,idRicettaStrum,NomeStep" OtherKey="idRicetta,idRicettaStrum,Nome" Type="Step" IsForeignKey="true" />
+      <Association Name="Strumento_Uso" Member="Strumento" ThisKey="idStrumento" OtherKey="idStrumento" Type="Strumento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Utilizzo" Member="Utilizzo">
+    <Type Name="Utilizzo">
+      <Column Name="idRicetta" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idRicettaStrum" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idStrumento" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="RicettaStrumento_Utilizzo" Member="RicettaStrumento" ThisKey="idRicetta,idRicettaStrum" OtherKey="idRicetta,idRicettaStrum" Type="RicettaStrumento" IsForeignKey="true" />
+      <Association Name="Strumento_Utilizzo" Member="Strumento" ThisKey="idStrumento" OtherKey="idStrumento" Type="Strumento" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
