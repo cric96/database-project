@@ -38,10 +38,8 @@
             this.addRS = new System.Windows.Forms.Button();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.Ingredienti = new System.Windows.Forms.Label();
-            this.ingredientVisualizzator = new System.Windows.Forms.ListView();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
-            this.stepListing = new System.Windows.Forms.ListView();
             this.strumentSelector = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -58,6 +56,8 @@
             this.Immagine = new System.Windows.Forms.Label();
             this.immagePath = new System.Windows.Forms.Label();
             this.AggiungiStep = new System.Windows.Forms.Button();
+            this.ingredientVisualizzator = new System.Windows.Forms.ListBox();
+            this.stepListing = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -181,14 +181,6 @@
             this.Ingredienti.TabIndex = 0;
             this.Ingredienti.Text = "Ingredienti";
             // 
-            // ingredientVisualizzator
-            // 
-            this.ingredientVisualizzator.Location = new System.Drawing.Point(3, 16);
-            this.ingredientVisualizzator.Name = "ingredientVisualizzator";
-            this.ingredientVisualizzator.Size = new System.Drawing.Size(138, 97);
-            this.ingredientVisualizzator.TabIndex = 1;
-            this.ingredientVisualizzator.UseCompatibleStateImageBehavior = false;
-            // 
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.Controls.Add(this.label8);
@@ -207,14 +199,6 @@
             this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "Steps";
-            // 
-            // stepListing
-            // 
-            this.stepListing.Location = new System.Drawing.Point(3, 16);
-            this.stepListing.Name = "stepListing";
-            this.stepListing.Size = new System.Drawing.Size(138, 197);
-            this.stepListing.TabIndex = 1;
-            this.stepListing.UseCompatibleStateImageBehavior = false;
             // 
             // strumentSelector
             // 
@@ -383,6 +367,22 @@
             this.AggiungiStep.Text = "Aggiungi Step";
             this.AggiungiStep.UseVisualStyleBackColor = true;
             // 
+            // ingredientVisualizzator
+            // 
+            this.ingredientVisualizzator.FormattingEnabled = true;
+            this.ingredientVisualizzator.Location = new System.Drawing.Point(3, 16);
+            this.ingredientVisualizzator.Name = "ingredientVisualizzator";
+            this.ingredientVisualizzator.Size = new System.Drawing.Size(138, 95);
+            this.ingredientVisualizzator.TabIndex = 1;
+            // 
+            // stepListing
+            // 
+            this.stepListing.FormattingEnabled = true;
+            this.stepListing.Location = new System.Drawing.Point(3, 16);
+            this.stepListing.Name = "stepListing";
+            this.stepListing.Size = new System.Drawing.Size(138, 186);
+            this.stepListing.TabIndex = 1;
+            // 
             // ricettaStrumentoInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,10 +440,10 @@
         private System.Windows.Forms.Button AggiungiStep;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Label Ingredienti;
-        private System.Windows.Forms.ListView ingredientVisualizzator;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListView stepListing;
         private System.Windows.Forms.Label immagePath;
+        private System.Windows.Forms.ListBox ingredientVisualizzator;
+        private System.Windows.Forms.ListBox stepListing;
     }
 }

@@ -32,6 +32,7 @@ namespace database_project.paneVisualization.insertPane
             ingrUdm = new Dictionary<String,double>();
             main = new TableLayoutPanel();
             Size basicSize = new Size(400, 20);
+            Size boxSize = new Size(400, 100);
             ingredienti = (from c in db.Ingrediente select c).ToList();
 
             //LABEL 
@@ -51,6 +52,7 @@ namespace database_project.paneVisualization.insertPane
 
             //COMBO
             categorie = createCombo();
+            this.categorie.Size = basicSize;
             //CHECKLIST
             checkCaratteristiche = createChecked(from c in caratteristiche
                                                            select new String(c.Item2.ToCharArray()));
@@ -59,11 +61,13 @@ namespace database_project.paneVisualization.insertPane
             unitàDiMisura.ItemCheck += new ItemCheckEventHandler(checkValues);
 
             this.alternativeBox = new CheckedListBox();
+            this.alternativeBox.Size = boxSize;
             this.alternativeBox.HorizontalScrollbar = true;
             this.ingredienti.ForEach(x => alternativeBox.Items.Add(x.Nome));
             //TEXT BOX
             box = new TextBox();
             box.MaxLength = (int)textConst.NOME_INGREDIENTE;
+            box.Size = basicSize;
             //aggiungi
 
             Button insert = new Button();
@@ -82,6 +86,9 @@ namespace database_project.paneVisualization.insertPane
             main.Controls.Add(alternativeBox);
             main.Controls.Add(insert);
             checkCaratteristiche.HorizontalScrollbar = true;
+            checkCaratteristiche.Size = boxSize;
+            unitàDiMisura.Size = boxSize;
+
 
         }
 
@@ -172,7 +179,14 @@ namespace database_project.paneVisualization.insertPane
                 ing.Nome = box.Text;
                 ing.NomeCat = categorie.SelectedItem.ToString();
                 db.Ingrediente.InsertOnSubmit(ing);
-                db.SubmitChanges();
+                try
+                {
+                    db.SubmitChanges();
+                } catch (Exception exc)
+                {
+                    AllertGestor.defaultError("Ingrediente già presente!");
+                    return;
+                }
                 int max = ing.idIngrediente;
                 foreach (int i in this.checkCaratteristiche.CheckedIndices)
                 {

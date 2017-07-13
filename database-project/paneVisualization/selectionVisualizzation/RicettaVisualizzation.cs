@@ -107,6 +107,9 @@ namespace database_project.paneVisualization.selectionVisualizzation
 
                 }
             };
+            this.ingrStep.MouseLeave += (obj, args) => tip.Hide(this);
+            this.ingrStep.HorizontalScrollbar = true;
+            this.strumStep.HorizontalScrollbar = true; 
             this.forward.Click += (obj, args) => { this.indexStep++; this.refreshStep(); };
             this.back.Click += (obj, args) => { this.indexStep--; this.refreshStep(); };
         }
