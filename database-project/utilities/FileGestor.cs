@@ -19,10 +19,24 @@ namespace database_project.utilities
 
         public static String copyFileToLocalFolder(string oldFile, string newFile)
         {
-            string localFile = FileGestor.getLocalFolder() + newFile + Path.GetExtension(oldFile);
+            Random rnd = new Random();
+            
+            string localFile = FileGestor.getLocalFolder() + newFile ;
             localFile = localFile.Replace(' ', '_');
-            File.Copy(oldFile, localFile);
-            return localFile;
+            bool isCopied = false;
+            do
+            {
+                try
+                {
+                    File.Copy(oldFile, localFile + Path.GetExtension(oldFile));
+                    isCopied = true;
+                }
+                catch (Exception e)
+                {
+                    localFile = localFile + "" + rnd.Next() % 10;
+                }
+            } while (!isCopied);
+            return localFile + Path.GetExtension(oldFile);
         }
     }
 

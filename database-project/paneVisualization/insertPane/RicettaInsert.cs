@@ -218,7 +218,7 @@ namespace database_project.paneVisualization.insertPane
                         }
                         catch (Exception exc)
                         {
-                            AllertGestor.defaultError("Il nome della ricetta è già stato inserito! controlla nel menù principale\n");
+                            AllertGestor.defaultError("errore grave consultare il tecnico: \n traccia : " + exc.ToString());
                         }
                     }
                     RicettarioDB.refresh();

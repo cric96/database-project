@@ -30,6 +30,8 @@ namespace database_project.paneVisualization.insertPane
             this.ingredientiSelezionati = new Dictionary<Tuple<String, int>, int>();
             this.stepIngredientiSelezionati = new Dictionary<int, Tuple<String, int>>();
             this.idRicettaStrumento = idRicettaStrumento;
+            this.ingredientVisualizzator.HorizontalScrollbar = true;
+            
             //Strumenti
             List<Strumento> strumenti = (from c in db.Strumento select c).ToList();
             List<Strumento> elettrodomestici = (from c in strumenti
@@ -41,10 +43,9 @@ namespace database_project.paneVisualization.insertPane
             List<Ingrediente> ingredienti = (from c in db.Ingrediente select c).ToList();
             ingredienti.ForEach(x => this.ingredientiSelector.Items.Add(x.Nome));
             this.nomeStep.MaxLength = (int)textConst.NOME_STEP;
-            
+
             //gestione list
-            this.ingredientVisualizzator.View = View.List;
-            this.stepListing.View = View.List;
+            this.stepListing.HorizontalScrollbar = true;
             //Action
             this.ingredientiSelector.ItemCheck += (obj, args) =>
             {
@@ -64,7 +65,7 @@ namespace database_project.paneVisualization.insertPane
                     {
                         this.ingredientiSelezionati.Add(key, res.Item2);
                     }
-                    this.ingredientVisualizzator.Clear();
+                    this.ingredientVisualizzator.Items.Clear();
                     this.refreshIngredient();
                 } else
                 {
@@ -82,7 +83,7 @@ namespace database_project.paneVisualization.insertPane
                         this.ingredientiSelezionati.Remove(key);
                         this.ingredientiSelezionati.Add(key, qntTot);
                     }
-                    this.ingredientVisualizzator.Clear();
+                    this.ingredientVisualizzator.Items.Clear();
                     this.refreshIngredient();
                 }
             };
@@ -161,7 +162,7 @@ namespace database_project.paneVisualization.insertPane
                     rs.idRicettaStrum = this.idRicettaStrumento;
                     try
                     {
-                        rs.Kcal = Int32.Parse(this.kcalTot.Text);
+                        rs.Kcal = (int)Double.Parse(this.kcalTot.Text);
                     } catch (Exception e)
                     {
                         rs.Kcal = 0;
